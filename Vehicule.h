@@ -5,4 +5,61 @@
 #ifndef LAB_02_PRG2_VEHICULE_H
 #define LAB_02_PRG2_VEHICULE_H
 
+#include <stdint.h>
+
+typedef const char* Matricule;
+typedef const char* const Marque;
+typedef enum {VOITURE, CAMIONNETTE} TypeVehicule;
+typedef enum {STANDARD, HAUT_GAMME} GammeVehicule;
+
+// Véhicule -> voiture -> standard
+typedef struct {
+   uint16_t cylindre,
+      rejetCo2;
+} Standard;
+
+// Véhicule -> voiture -> haut de gamme
+typedef struct {
+   uint16_t puissance;
+} HautGamme;
+
+typedef union {
+   Standard standard;
+   HautGamme hautGamme;
+} Gamme;
+
+// Véhicule -> voiture
+typedef struct {
+   uint16_t poids;
+   GammeVehicule gammeVehicule;
+   Gamme gamme;
+} Voiture;
+
+// Véhicule -> camionnette
+typedef struct {
+   double volumeTransport;
+} Camionnette;
+
+typedef union {
+   Voiture voiture;
+   Camionnette camionnette;
+} Categorie;
+
+// Véhicule
+typedef struct {
+   Matricule matricule;
+   Marque marque;
+   TypeVehicule typeVehicule;
+   Categorie categorie;
+} Vehicule;
+
+// Constructeur
+Vehicule voitureStandard(Matricule matricule, Marque marque, uint16_t poids,
+                         uint16_t cylindre, uint16_t rejetCo2);
+
+Vehicule voitureHautGamme(Matricule matricule, Marque marque, uint16_t poids,
+                          uint16_t puissance);
+
+Vehicule camionnette(Matricule matricule, Marque marque, double volumeTransport);
+
 #endif //LAB_02_PRG2_VEHICULE_H
