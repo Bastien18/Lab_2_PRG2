@@ -7,10 +7,20 @@
 
 #include <stdint.h>
 
+#define POIDS_UNITEE       "[kg]"
+#define CYLINDRE_UNITEE    "[cm3]"
+#define VOLUME_UNITEE      "[m3]"
+#define REJET_CO2_UNITEE   "[g/km]"
+#define PUISSANCE_UNITEE   "[CV]"
+#define DEVISE             "CHF"
+
 typedef const char* Matricule;
 typedef const char* const Marque;
 typedef enum {VOITURE, CAMIONNETTE} TypeVehicule;
 typedef enum {STANDARD, HAUT_GAMME} GammeVehicule;
+
+const char* const TYPES_VEHICULE[] = {"Voiture", "Camionnette"};
+const char* const GAMME_VEHICULE[] = {"Standard", "Haut de gamme"};
 
 // Véhicule -> voiture -> standard
 typedef struct {
@@ -61,5 +71,7 @@ Vehicule voitureHautGamme(Matricule matricule, Marque marque, uint16_t poids,
                           uint16_t puissance);
 
 Vehicule camionnette(Matricule matricule, Marque marque, double volumeTransport);
+
+void affichage(Vehicule* vehicule);
 
 #endif //LAB_02_PRG2_VEHICULE_H

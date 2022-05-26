@@ -22,5 +22,14 @@ int main(void) {
    //Vehicule voiture = {.matricule = "123456", .marque = "Peugeot"};
    //printf("%s\n%s", voiture.matricule, voiture.marque);
 
+   // Test constructeur
+   Vehicule voitureStd = voitureStandard("1234567","Toyota", 1287, 1540,34);
+   Vehicule voitureHg = voitureHautGamme("12291387","Renault", 1287, 2);
+   Vehicule camthar = camionnette("134353244567","Iveco", 10.567);
+
+   affichage(&voitureStd);
+   affichage(&voitureHg);
+   affichage(&camthar);
+
    return 0;
 }
