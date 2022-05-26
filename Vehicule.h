@@ -7,20 +7,17 @@
 
 #include <stdint.h>
 
-#define POIDS_UNITEE       "[kg]"
-#define CYLINDRE_UNITEE    "[cm3]"
-#define VOLUME_UNITEE      "[m3]"
-#define REJET_CO2_UNITEE   "[g/km]"
-#define PUISSANCE_UNITEE   "[CV]"
-#define DEVISE             "CHF"
+#define POIDS_UNITEE       	"[kg]"
+#define CYLINDRE_UNITEE    	"[cm3]"
+#define VOLUME_UNITEE      	"[m3]"
+#define REJET_CO2_UNITEE   	"[g/km]"
+#define PUISSANCE_UNITEE   	"[CV]"
+#define DEVISE             	"CHF"
 
 typedef const char* Matricule;
 typedef const char* const Marque;
 typedef enum {VOITURE, CAMIONNETTE} TypeVehicule;
 typedef enum {STANDARD, HAUT_GAMME} GammeVehicule;
-
-const char* const TYPES_VEHICULE[] = {"Voiture", "Camionnette"};
-const char* const GAMME_VEHICULE[] = {"Standard", "Haut de gamme"};
 
 // Véhicule -> voiture -> standard
 typedef struct {

@@ -16,8 +16,12 @@
 #include <stdio.h>
 #include <inttypes.h>
 
+const char* const TYPES_VEHICULE[] 		= {"Voiture", "Camionnette"};
+const char* const GAMME_VEHICULE[] 		= {"Standard", "Haut de gamme"};
+
 Vehicule voitureStandard(Matricule matricule, Marque marque, uint16_t poids,
                          uint16_t cylindre, uint16_t rejetCo2) {
+
    Vehicule vhc = {  .matricule = matricule,
                      .marque = marque,
                      .typeVehicule = VOITURE,
@@ -36,6 +40,7 @@ Vehicule voitureStandard(Matricule matricule, Marque marque, uint16_t poids,
 
 Vehicule voitureHautGamme(Matricule matricule, Marque marque, uint16_t poids,
                           uint16_t puissance) {
+
    Vehicule vhc = {  .matricule = matricule,
                      .marque = marque,
                      .typeVehicule = VOITURE,
@@ -50,6 +55,7 @@ Vehicule voitureHautGamme(Matricule matricule, Marque marque, uint16_t poids,
 }
 
 Vehicule camionnette(Matricule matricule, Marque marque, double volumeTransport) {
+
    Vehicule vhc = {  .matricule = matricule,
       .marque = marque,
       .typeVehicule = CAMIONNETTE,
@@ -62,29 +68,29 @@ Vehicule camionnette(Matricule matricule, Marque marque, double volumeTransport)
 
 void affichage(Vehicule* vehicule){
    printf("=================================================\n"
-          "Marque    : %s\n"
-          "Matricule : %s\n"
-          "Catégorie : %s\n",
+          "%: %s\n"
+          "Matricule           : %s\n"
+          "Categorie           : %s\n",
           vehicule->marque, vehicule->matricule,
           TYPES_VEHICULE[vehicule->typeVehicule]);
 
    switch (vehicule->typeVehicule) {
       case VOITURE:
-         printf("Gamme     : %s\n"
-            "Poids : %" PRIu16 POIDS_UNITEE "\n",
+         printf("Gamme               : %s\n"
+            "Poids               : %" PRIu16 POIDS_UNITEE "\n",
             GAMME_VEHICULE[vehicule->categorie.voiture.gammeVehicule],
             vehicule->categorie.voiture.poids);
 
          switch (vehicule->categorie.voiture.gammeVehicule) {
             case STANDARD:
-               printf("Cylindree : %" PRIu16 CYLINDRE_UNITEE "\n"
-                  "Rejet CO2 : %" PRIu16 REJET_CO2_UNITEE "\n",
+               printf("Cylindree           : %" PRIu16 CYLINDRE_UNITEE "\n"
+                  "Rejet CO2           : %" PRIu16 REJET_CO2_UNITEE "\n",
                   vehicule->categorie.voiture.gamme.standard.cylindre,
                   vehicule->categorie.voiture.gamme.standard.rejetCo2);
                break;
 
             case HAUT_GAMME:
-               printf("Puissance : %" PRIu16 PUISSANCE_UNITEE "\n",
+               printf("Puissance           : %" PRIu16 PUISSANCE_UNITEE "\n",
                       vehicule->categorie.voiture.gamme.hautGamme.puissance);
                break;
          }
