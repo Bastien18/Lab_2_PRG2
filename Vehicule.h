@@ -7,12 +7,13 @@
 
 #include <stdint.h>
 
-#define POIDS_UNITEE       	"[kg]"
-#define CYLINDRE_UNITEE    	"[cm3]"
-#define VOLUME_UNITEE      	"[m3]"
-#define REJET_CO2_UNITEE   	"[g/km]"
-#define PUISSANCE_UNITEE   	"[CV]"
-#define DEVISE             	"CHF"
+#define POIDS_UNITEE       "[kg]"
+#define CYLINDRE_UNITEE    "[cm3]"
+#define VOLUME_UNITEE      "[m3]"
+#define REJET_CO2_UNITEE   "[g/km]"
+#define PUISSANCE_UNITEE   "[CV]"
+#define DEVISE             "CHF"
+#define ESPACEMENT			"20"
 
 typedef const char* Matricule;
 typedef const char* const Marque;
@@ -69,6 +70,12 @@ Vehicule voitureHautGamme(Matricule matricule, Marque marque, uint16_t poids,
 
 Vehicule camionnette(Matricule matricule, Marque marque, double volumeTransport);
 
+// Fonctions
 void affichage(Vehicule* vehicule);
 
+double taxe(Vehicule* vehicule);
+
+double arrondis5Centimes(double montant);
+
 #endif //LAB_02_PRG2_VEHICULE_H
+
