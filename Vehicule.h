@@ -1,11 +1,30 @@
-//
-// Created by basti on 24.05.2022.
-//
+/*
+  ---------------------------------------------------------------------------
+  Fichier     :
+  Nom du labo :
+  Auteur(s)   : Bastien Pillonel
+  Date        :
+  But         : le but du programme et non le but du laboratoire !!
+
+  Remarque(s) : à compléter
+
+  Compilateur : MingW-w64 g++ 11.2.0
+  ---------------------------------------------------------------------------
+*/
+
 
 #ifndef LAB_02_PRG2_VEHICULE_H
 #define LAB_02_PRG2_VEHICULE_H
 
+//---------------------------------------------------------------------------
+// Inclusions
+//---------------------------------------------------------------------------
+
 #include <stdint.h>
+
+//---------------------------------------------------------------------------
+// Definition des symboles
+//---------------------------------------------------------------------------
 
 #define POIDS_UNITEE       "[kg]"
 #define CYLINDRE_UNITEE    "[cm3]"
@@ -15,53 +34,61 @@
 #define DEVISE             "CHF"
 #define ESPACEMENT			"20"
 
+//---------------------------------------------------------------------------
+// Definition des types
+//---------------------------------------------------------------------------
+
 typedef const char* Matricule;
 typedef const char* const Marque;
 typedef enum {VOITURE, CAMIONNETTE} TypeVehicule;
-typedef enum {STANDARD, HAUT_GAMME} GammeVehicule;
+//TODO remplacer GammeVehicule en GammeVoiture chez steph
+typedef enum {STANDARD, HAUT_GAMME} GammeVoiture;
 
-// Véhicule -> voiture -> standard
+//---------------------------------------------------------------------------
+// Definition de la structure composée véhicule
+// NB: De haut en bas : du plus spécifique au plus général
+//---------------------------------------------------------------------------
+
 typedef struct {
    uint16_t cylindre,
-      rejetCo2;
+				rejetCo2;
 } Standard;
 
-// Véhicule -> voiture -> haut de gamme
 typedef struct {
-   uint16_t puissance;
+   uint16_t 	puissance;
 } HautGamme;
 
 typedef union {
-   Standard standard;
-   HautGamme hautGamme;
+   Standard 	standard;
+   HautGamme 	hautGamme;
 } Gamme;
 
-// Véhicule -> voiture
 typedef struct {
-   uint16_t poids;
-   GammeVehicule gammeVehicule;
-   Gamme gamme;
+   uint16_t 		poids;
+   GammeVoiture 	gammeVehicule;
+   Gamme 			gamme;
 } Voiture;
 
-// Véhicule -> camionnette
 typedef struct {
    double volumeTransport;
 } Camionnette;
 
 typedef union {
-   Voiture voiture;
-   Camionnette camionnette;
+   Voiture 		voiture;
+   Camionnette	camionnette;
 } Categorie;
 
-// Véhicule
 typedef struct {
-   Matricule matricule;
-   Marque marque;
-   TypeVehicule typeVehicule;
-   Categorie categorie;
+   Matricule 		matricule;
+   Marque 			marque;
+   TypeVehicule 	typeVehicule;
+   Categorie 		categorie;
 } Vehicule;
 
-// Constructeur
+//---------------------------------------------------------------------------
+// Constructeurs des différents véhicules
+//---------------------------------------------------------------------------
+
 Vehicule voitureStandard(Matricule matricule, Marque marque, uint16_t poids,
                          uint16_t cylindre, uint16_t rejetCo2);
 
@@ -70,12 +97,11 @@ Vehicule voitureHautGamme(Matricule matricule, Marque marque, uint16_t poids,
 
 Vehicule camionnette(Matricule matricule, Marque marque, double volumeTransport);
 
-// Fonctions
-void affichage(Vehicule* vehicule);
+//---------------------------------------------------------------------------
+// Affichage des caractéristiques d'un véhicule
+//---------------------------------------------------------------------------
 
-double taxe(Vehicule* vehicule);
-
-double arrondis5Centimes(double montant);
+void affichage(const Vehicule* vehicule);
 
 #endif //LAB_02_PRG2_VEHICULE_H
 

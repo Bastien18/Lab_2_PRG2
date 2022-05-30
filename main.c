@@ -12,50 +12,42 @@
   ---------------------------------------------------------------------------
 */
 
+//---------------------------------------------------------------------------
+// Inclusions
+//---------------------------------------------------------------------------
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "Vehicule.h"
-#include "Statistique.h"
+#include "Taxe.h"
+#include "Parking.h"
 
-int compare(const void* vhc1, const void* vhc2);
+//---------------------------------------------------------------------------
+// Programme principal
+//---------------------------------------------------------------------------
 
 int main(void) {
 
-   //Vehicule voiture = {.matricule = "123456", .marque = "Peugeot"};
-   //printf("%s\n%s", voiture.matricule, voiture.marque);
+	// Construction de véhicules pour le parking
+   Vehicule vs1 = voitureStandard("VD 1234567","Toyota", 1287, 1320,119);
+	Vehicule vs2 = voitureStandard("GE 1654894","Mazda", 987, 1290,130);
+	Vehicule vs3 = voitureStandard("FR 1568531","Volkswagen", 1879, 1400,129);
 
-   // Test constructeur
-   Vehicule vs1 = voitureStandard("1234567","Toyota", 1287, 1320,119);
-	Vehicule vs2 = voitureStandard("1654894","Mazda", 987, 1290,130);
-	Vehicule vs3 = voitureStandard("1568531","Volkswagen", 1879, 1540,129);
+   Vehicule vh1 = voitureHautGamme("ZH 1856482","Porsche", 1000, 250);
+	Vehicule vh2 = voitureHautGamme("TI 4582131","BMW", 1000, 251);
 
-   Vehicule vh1 = voitureHautGamme("1856482","Porsche", 1287, 250);
-	Vehicule vh2 = voitureHautGamme("4582131","BMW", 1500, 500);
+   Vehicule c1 = camionnette("VS 6542184","Iveco", 10.567);
+	Vehicule c2 = camionnette("AG 3846854","ISUZU", 0.);
 
-   Vehicule c1 = camionnette("6542184","Iveco", 10.567);
-	Vehicule c2 = camionnette("3846854","ISUZU", 5.625);
-
+	// Création du parking
 	Vehicule* parking[] = {&vs1, &vs2, &vs3, &vh1, &vh2, &c1, &c2};
-
 	const size_t TAILLE_PARKING = sizeof(parking) / sizeof(Vehicule*);
 
-	printf("=============== AVANT QSORT ===============\n");
+	// Trier le parking par taxes annuelles décroissantes
+	qsort(parking, TAILLE_PARKING, sizeof(Vehicule *), compare_taxe);
 
-	for(size_t i = 0; i < TAILLE_PARKING; ++i){
-		affichage(parking[i]);
-	}
-
-	qsort(parking, TAILLE_PARKING, sizeof(Vehicule*), compare);
-
-	printf("=============== APRES QSORT ===============\n");
-
-	for(size_t i = 0; i < TAILLE_PARKING; ++i){
-		affichage(parking[i]);
-	}
+	// Afficher le parking
+	affichageParking(parking, TAILLE_PARKING);
 
    return 0;
-}
-
-int compare(const void* vhc1, const void* vhc2){
-	return (int)(taxe(*(Vehicule**)vhc2) - taxe(*(Vehicule**) vhc1));
 }
