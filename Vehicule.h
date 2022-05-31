@@ -25,7 +25,7 @@
 // Definition des types
 //---------------------------------------------------------------------------
 
-typedef char* Matricule;
+typedef const char* Matricule;
 typedef const char* Marque;
 typedef enum {VOITURE, CAMIONNETTE} TypeVehicule;
 //TODO remplacer GammeVehicule en GammeVoiture chez steph

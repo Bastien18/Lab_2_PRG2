@@ -23,6 +23,18 @@
 #include "Parking.h"
 
 //---------------------------------------------------------------------------
+// Variables et constantes
+//---------------------------------------------------------------------------
+
+const char* const TYPES_VEHICULE[] 		= {"Voiture", "Camionnette"};
+const char* const GAMME_VEHICULE[] 		= {"Standard", "Haut de gamme"};
+const char* const CARACTERISTIQUES[]	= {"Marque", "Matricule",
+                                          "Categorie", "Gamme",
+                                          "Poids", "Cylindree",
+                                          "Rejet CO2", "Puissance",
+                                          "Volume de transport"};
+
+//---------------------------------------------------------------------------
 // Programme principal
 //---------------------------------------------------------------------------
 
