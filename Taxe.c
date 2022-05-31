@@ -40,6 +40,10 @@ const uint16_t    SEUIL_PUISSANCE	= 250,
 
 const char* const CARACTERISTIQUE_TAXE = "Taxe annuelle";
 
+const uint16_t SEUIL_DE[TAILLE_SEUIL] = {250,
+                                         1400,
+                                         130};
+
 //---------------------------------------------------------------------------
 // Calcul de la taxe annuelle
 //---------------------------------------------------------------------------
@@ -86,6 +90,24 @@ double taxe(const Vehicule* vehicule){
 	}
 
 	return arrondis5Centimes(taxe);
+}
+
+double *tabDeTaxe(const Vehicule *debutGarage, size_t taille,
+                  int (*estCritere)(const Vehicule *)) {
+
+   size_t nbVehicules = compteVehicules(debutGarage, taille, estCritere);
+   double *tabTax = (double *) calloc(nbVehicules, sizeof(double));
+
+   if (tabTax) {
+      for (size_t i = 0; i < taille; ++i) {
+         if (estCritere(debutGarage + i)) {
+            *tabTax = taxe(debutGarage + i);
+            ++tabTax;
+         }
+      }
+      return tabTax - nbVehicules;
+   }
+   return NULL;
 }
 
 //---------------------------------------------------------------------------

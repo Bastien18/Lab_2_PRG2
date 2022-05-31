@@ -20,11 +20,26 @@
 //---------------------------------------------------------------------------
 
 #include "Vehicule.h"
+#include "Statistique.h"
 
 //---------------------------------------------------------------------------
 // Fonction d'affichage du parking
 //---------------------------------------------------------------------------
 
-void affichageParking(Vehicule* parking[], size_t tailleParking);
+void affichageParking(const Vehicule* parking[], size_t tailleParking);
+
+int estVoitureStandard(const Vehicule *vehicule);
+
+int estVoitureHauteGamme(const Vehicule *vehicule);
+
+int estCamionnette(const Vehicule *vehicule);
+
+size_t compteVehicules(const Vehicule *debutGarage, size_t tailleGarage,
+                       int (*estCategorie)(const Vehicule *));
+
+Vehicule *sousGarage(const Vehicule *debutGarage, size_t tailleGarage,
+                     int (*estCategorie)(const Vehicule *));
+
+
 
 #endif //LAB_02_PRG2_PARKING_H

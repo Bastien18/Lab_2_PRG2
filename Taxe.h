@@ -35,6 +35,18 @@
 
 double taxe(const Vehicule* vehicule);
 
+/**
+ * Cette fonction établi un tableau regroupant le taxes annuelles de chaque véhicule
+ * correspondant à un critère, selon l'ordre d'apparition du tableau d'origine.
+ * @param debutGarage Le début du tableau de véhicules
+ * @param taille      La taille du tableau
+ * @param estCritere  une fonction de validation pour le critère souhaité
+ * @return un tableau contenant la montant de la taxe annuel pour chaque véhicule
+ *         qui correspond au critère.
+ */
+double* tabDeTaxe(const Vehicule* debutGarage, size_t taille,
+                  int(*estCritere)(const Vehicule*));
+
 //---------------------------------------------------------------------------
 // Arrondis des prix à 5 centimes
 //---------------------------------------------------------------------------
