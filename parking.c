@@ -15,37 +15,36 @@ int estCamionnette(const Vehicule *vehicule) {
 }
 
 
-
 int estVoitureHauteGamme(const Vehicule *vehicule) {
    return vehicule->typeVehicule == VOITURE
           && vehicule->categorie.voiture.gammeVehicule == HAUT_GAMME;
 }
 
 
-
 size_t compteVehicules(const Vehicule *debutGarage, size_t tailleGarage,
-                                  int (*estCategorie)(const Vehicule *)) {
+                       int (*estCategorie)(const Vehicule *)) {
    size_t compteur = 0;
-   for(size_t i = 0; i < tailleGarage; ++i){
-   if (estCategorie(debutGarage + i)){
-      ++compteur;
-   }
+   for (size_t i = 0; i < tailleGarage; ++i) {
+      if (estCategorie(debutGarage + i)) {
+         ++compteur;
+      }
    }
    return compteur;
 }
 
 Vehicule *sousGarage(const Vehicule *debutGarage, size_t tailleGarage,
                      int (*estCategorie)(const Vehicule *)) {
-   size_t tailleSousGarages = compteVehicules(debutGarage, tailleGarage, estCategorie);
-   Vehicule* sousGarage = (Vehicule *) calloc(tailleSousGarages, sizeof(Vehicule));
+   size_t tailleSousGarages = compteVehicules(debutGarage, tailleGarage,
+                                              estCategorie);
+   Vehicule *sousGarage = (Vehicule *) calloc(tailleSousGarages, sizeof(Vehicule));
 
-   for (size_t i=0; i < tailleGarage; ++i){
-      if(estCategorie(debutGarage + i)){
-         sousGarage = (Vehicule*)sousGarage+i;
+   for (size_t i = 0; i < tailleGarage; ++i) {
+      if (estCategorie(debutGarage + i)) {
+         sousGarage = (Vehicule *) sousGarage + i;
          ++sousGarage;
       }
    }
-   return sousGarage-tailleSousGarages;
+   return sousGarage - tailleSousGarages;
 }
 
 
