@@ -61,5 +61,6 @@ int main(void) {
 	// Afficher le parking
 	affichageParking(parking, TAILLE_PARKING);
 
+
    return 0;
 }

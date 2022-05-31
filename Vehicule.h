@@ -58,6 +58,7 @@ typedef struct {
 
 typedef struct {
    double volumeTransport;
+  
 } Camionnette;
 
 typedef union {
@@ -83,6 +84,7 @@ Vehicule voitureHautGamme(Matricule matricule, Marque marque, uint16_t poids,
                           uint16_t puissance);
 
 Vehicule camionnette(Matricule matricule, Marque marque, double volumeTransport);
+
 
 #endif //LAB_02_PRG2_VEHICULE_H
 
