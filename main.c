@@ -1,48 +1,65 @@
+/*
+  ---------------------------------------------------------------------------
+  Fichier     :
+  Nom du labo :
+  Auteur(s)   : Bastien Pillonel
+  Date        :
+  But         : le but du programme et non le but du laboratoire !!
+
+  Remarque(s) : à compléter
+
+  Compilateur : MingW-w64 g++ 11.2.0
+  ---------------------------------------------------------------------------
+*/
+
+//---------------------------------------------------------------------------
+// Inclusions
+//---------------------------------------------------------------------------
+
 #include <stdio.h>
+#include <stdlib.h>
 #include "Vehicule.h"
+#include "Taxe.h"
+#include "Parking.h"
 
-int main() {
+//---------------------------------------------------------------------------
+// Variables et constantes
+//---------------------------------------------------------------------------
 
-   //exemple de creation de vehicule
+const char* const TYPES_VEHICULE[] 		= {"Voiture", "Camionnette"};
+const char* const GAMME_VEHICULE[] 		= {"Standard", "Haut de gamme"};
+const char* const CARACTERISTIQUES[]	= {"Marque", "Matricule",
+                                          "Categorie", "Gamme",
+                                          "Poids", "Cylindree",
+                                          "Rejet CO2", "Puissance",
+                                          "Volume de transport"};
 
-   Vehicule voitureLuxe =
-      {"Lambo","GE 123456",VOITURE, {.voiture =
-         {1000,HAUT_DE_GAMME, {.hautDeGamme = {200}}}}};
-   Vehicule voitureTuktuk =
-      {"BestTukTuk","VS 134256",VOITURE, {.voiture =
-         {350,STANDARD, {.standard = {2,150}}}}};
-   Vehicule camionetteMichel =
-      {"Peugot","VD 532323",CAMIONETTE, {.camionette = {35}}};
+//---------------------------------------------------------------------------
+// Programme principal
+//---------------------------------------------------------------------------
 
-   Vehicule *listVehicule[3] = {&voitureLuxe,&voitureTuktuk,&camionetteMichel};
+int main(void) {
 
-   //exemple affichage
-   for (int i = 0; i < 3; ++i) {
-      printf("Vehicule numero %d : \n", i+1);
-      printf("marque : %s\n", listVehicule[i]->marque);
-      printf("immatr : %s\n", listVehicule[i]->immatriculation);
-      printf("type : %s\n", LISTE_TYPE[listVehicule[i]->typeVehicule]);
-      if (listVehicule[i]->typeVehicule == VOITURE){
-         printf("gamme : %s\n", LISTE_GAMME[listVehicule[i]->Type.voiture
-         .typeGamme]);
-         printf("poids : %d\n", listVehicule[i]->Type.voiture.poids);
+	// Construction de véhicules pour le parking
+   Vehicule vs1 = voitureStandard("VD 1234567","Toyota", 1287, 1320,119);
+	Vehicule vs2 = voitureStandard("GE 1654894","Mazda", 987, 1290,130);
+	Vehicule vs3 = voitureStandard("FR 1568531","Volkswagen", 1879, 1400,129);
 
-         if (listVehicule[i]->Type.voiture.typeGamme == STANDARD){
-            printf("cylindree : %d\n", listVehicule[i]->Type.voiture.gamme.standard
-            .cylindree);
-            printf("reget co2 : %d\n", listVehicule[i]->Type.voiture.gamme.standard
-            .regetCo2);
-         }
-         else if (listVehicule[i]->Type.voiture.typeGamme == HAUT_DE_GAMME){
-            printf("Cv : %d\n", listVehicule[i]->Type.voiture.gamme.hautDeGamme
-            .puissance);
-         }
-      }
-      else if (listVehicule[i]->typeVehicule == CAMIONETTE){
-         printf("vol : %f\n", listVehicule[i]->Type.camionette.volumeTransport);
-      }
-      printf("\n");
-   }
+   Vehicule vh1 = voitureHautGamme("ZH 1856482","Porsche", 1000, 250);
+	Vehicule vh2 = voitureHautGamme("TI 4582131","BMW", 1000, 251);
+
+   Vehicule c1 = camionnette("VS 6542184","Iveco", 10.567);
+	Vehicule c2 = camionnette("AG 3846854","ISUZU", 0.);
+
+	// Création du parking
+	Vehicule* parking[] = {&vs1, &vs2, &vs3, &vh1, &vh2, &c1, &c2};
+	const size_t TAILLE_PARKING = sizeof(parking) / sizeof(Vehicule*);
+
+	// Trier le parking par taxes annuelles décroissantes
+	qsort(parking, TAILLE_PARKING, sizeof(Vehicule *), compare_taxe);
+
+	// Afficher le parking
+	affichageParking(parking, TAILLE_PARKING);
 
 
    return 0;
