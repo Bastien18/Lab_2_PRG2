@@ -4,7 +4,6 @@
 
 
 #include "statistique.h"
-#include <stdlib.h> // calloc
 #include <math.h>   // pow
 #include <string.h> // memcpy
 #include "taxe.h"   // compareTaxe
@@ -26,10 +25,10 @@ double moyenne(const double *liste, size_t taille) {
    return somme(liste, taille) / taille;
 }
 
-int compareDouble(const void* vhc1, const void* vhc2){
+int compareDouble(const void* a, const void* b){
    // La notation bizzare est du au mauvais comportement entre (-1 et 1)
-   return (*(double*)vhc2 - *(double*) vhc1) < 0 ? -1 :
-           *(double*)vhc2 - *(double*)vhc1 > 0 ? 1 : 0  ;
+   return (*(double*)b - *(double*)a) < 0 ? -1 :
+          *(double*)b - *(double*)a > 0 ? 1 : 0  ;
 }
 
 
