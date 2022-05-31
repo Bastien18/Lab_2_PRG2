@@ -104,6 +104,3 @@ double arrondiAu5Centimes(double montant) {
    return round(montant / CINQ_CENTIEME) * CINQ_CENTIEME;
 }
 
-int compare_taxe(const void* vhc1, const void* vhc2){
-   return (int)(taxe(*(Vehicule**)vhc2) - taxe(*(Vehicule**) vhc1));
-}

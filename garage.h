@@ -8,23 +8,17 @@
 #include "statistique.h"
 
 
-int estVoitureStandard (const Vehicule* vehicule);
+int estVoitureStandard(const Vehicule *vehicule);
 
-int estVoitureHauteGamme(const Vehicule* vehicule);
+int estVoitureHauteGamme(const Vehicule *vehicule);
 
-int estCamionnette (const Vehicule* vehicule);
+int estCamionnette(const Vehicule *vehicule);
 
 size_t compteVehicules(const Vehicule *debutGarage, size_t tailleGarage,
                        int (*estCategorie)(const Vehicule *));
 
-Vehicule* sousGarage(const Vehicule *debutGarage, size_t tailleGarage,
-                     int (*estCategorie)(const Vehicule *))
-
-
-
-
-
-
+Vehicule *sousGarage(const Vehicule *debutGarage, size_t tailleGarage,
+                     int (*estCategorie)(const Vehicule *));
 
 
 #endif //LAB_02_PRG2_GARAGE_H

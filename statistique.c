@@ -26,6 +26,13 @@ double moyenne(const double *liste, size_t taille) {
    return somme(liste, taille) / taille;
 }
 
+int compareDouble(const void* vhc1, const void* vhc2){
+   // La notation bizzare est du au mauvais comportement entre (-1 et 1)
+   return (*(double*)vhc2 - *(double*) vhc1) < 0 ? -1 :
+           *(double*)vhc2 - *(double*)vhc1 > 0 ? 1 : 0  ;
+}
+
+
 double mediane(const double *liste, size_t taille) {
    const int PARITEE = 2;
    const int LA_DEMI = 2;
@@ -36,7 +43,7 @@ double mediane(const double *liste, size_t taille) {
       return 0.;
    }
    memcpy(tab, liste, taille * sizeof(double));
-   qsort(tab, sizeof(double), taille, compareTaxe);
+   qsort(tab, sizeof(double), taille, compareDouble);
 
    if (taille % PARITEE) { // IMPAIRE
       mediane = tab[taille / LA_DEMI];

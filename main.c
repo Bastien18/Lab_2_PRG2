@@ -14,8 +14,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "Vehicule.h"
-#include "Statistique.h"
+#include "vehicule.h"
+#include "statistique.h"
 
 int compare(const void* vhc1, const void* vhc2);
 
