@@ -5,6 +5,8 @@
 #ifndef LAB_02_PRG2_STATISTIQUE_H
 #define LAB_02_PRG2_STATISTIQUE_H
 
+#include <stdlib.h>
+
 double somme(const double *liste, size_t taille);
 
 double moyenne(const double *liste, size_t taille);

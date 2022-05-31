@@ -34,12 +34,12 @@ int estVoitureHauteGamme(const Vehicule *vehicule);
 
 int estCamionnette(const Vehicule *vehicule);
 
-size_t compteVehicules(const Vehicule *debutGarage, size_t tailleGarage,
+size_t compteVehicules(const Vehicule *debutParking, size_t tailleParking,
                        int (*estCategorie)(const Vehicule *));
 
 Vehicule *sousGarage(const Vehicule *debutGarage, size_t tailleGarage,
                      int (*estCategorie)(const Vehicule *));
 
-
+void affichageStatistique(const Vehicule *parking[], size_t taille);
 
 #endif //LAB_02_PRG2_PARKING_H

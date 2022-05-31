@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Lab_2_PRG2::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Lab_2_PRG2-Debug-cdfeaea20bd6c5680dd7.json",
+					"jsonFile" : "target-Lab_2_PRG2-Debug-f12c71b4bc2db93904ef.json",
 					"name" : "Lab_2_PRG2",
 					"projectIndex" : 0
 				}
@@ -55,6 +55,6 @@
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 4
+		"minor" : 3
 	}
 }

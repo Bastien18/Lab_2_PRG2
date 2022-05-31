@@ -65,4 +65,6 @@ int compare_taxe(const void* vhc1, const void* vhc2);
 
 void affichageTaxe(const Vehicule* vehicule);
 
+double arrondiAu5Centimes(double montant);
+
 #endif //LAB_02_PRG2_TAXE_H

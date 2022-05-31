@@ -6,7 +6,6 @@
 #include "Statistique.h"
 #include <math.h>   // pow
 #include <string.h> // memcpy
-#include "Taxe.h"   // compareTaxe
 
 
 
@@ -22,11 +21,11 @@ double somme(const double *liste, size_t taille) {
 
 
 double moyenne(const double *liste, size_t taille) {
-   return somme(liste, taille) / taille;
+   return somme(liste, taille) / (double)taille;
 }
 
 int compareDouble(const void* a, const void* b){
-   // La notation bizzare est du au mauvais comportement entre (-1 et 1)
+   // La notation bizarre est due au mauvais comportement entre (-1 et 1)
    return (*(double*)b - *(double*)a) < 0 ? -1 :
           *(double*)b - *(double*)a > 0 ? 1 : 0  ;
 }
@@ -35,7 +34,7 @@ int compareDouble(const void* a, const void* b){
 double mediane(const double *liste, size_t taille) {
    const int PARITEE = 2;
    const int LA_DEMI = 2;
-   double mediane = 0.;
+   double mediane;
    double *tab = (double *) calloc(taille, sizeof(double));
 
    if (!tab) { // Assert(tab)

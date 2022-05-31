@@ -16,7 +16,6 @@
 // Inclusions
 //---------------------------------------------------------------------------
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "Vehicule.h"
 #include "Taxe.h"
@@ -60,6 +59,9 @@ int main(void) {
 
 	// Afficher le parking
 	affichageParking(parking, TAILLE_PARKING);
+   affichageStatistique(parking,TAILLE_PARKING);
+
+
 
 
    return 0;
