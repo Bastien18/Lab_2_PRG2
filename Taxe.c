@@ -17,25 +17,28 @@
 //---------------------------------------------------------------------------
 
 #include <math.h>
+#include <stdio.h>
 #include "Taxe.h"
 
 //---------------------------------------------------------------------------
 // Variables et constantes
 //---------------------------------------------------------------------------
 
-const double 	TAXE_BASE_CAMIONNETTE 		= 700.,
-					TAXE_BASE_VOITURE				= 400.,
-					TAXE_VOITURE_ECO   			= 0.,
-					TAXE_VOITURE_POL				= 50.,
-					TAUX_VOITURE_GROSSE_CYL 	= 0.05,
-					TAUX_CAMIONNETTE				= 10.,
-					TAXE_VOITURE_HG				= 200.,
-					TAXE_VOITURE_HG_PUISSANT	= 300.,
-					TAUX_VOITURE_HG_PUISSANT	= 20.;
+const double 	   TAXE_BASE_CAMIONNETTE 		= 700.,
+					   TAXE_BASE_VOITURE				= 400.,
+					   TAXE_VOITURE_ECO   			= 0.,
+					   TAXE_VOITURE_POL				= 50.,
+					   TAUX_VOITURE_GROSSE_CYL 	= 0.05,
+					   TAUX_CAMIONNETTE				= 10.,
+					   TAXE_VOITURE_HG				= 200.,
+					   TAXE_VOITURE_HG_PUISSANT	= 300.,
+					   TAUX_VOITURE_HG_PUISSANT	= 20.;
 
-const uint16_t SEUIL_PUISSANCE	= 250,
-					SEUIL_CYLINDREE	= 1400,
-					SEUIL_REJET_CO2	= 130;
+const uint16_t    SEUIL_PUISSANCE	= 250,
+					   SEUIL_CYLINDREE	= 1400,
+					   SEUIL_REJET_CO2	= 130;
+
+const char* const CARACTERISTIQUE_TAXE = "Taxe annuelle";
 
 //---------------------------------------------------------------------------
 // Calcul de la taxe annuelle
@@ -99,4 +102,13 @@ double arrondis5Centimes(double montant){
 
 int compare_taxe(const void* vhc1, const void* vhc2){
 	return (int)(taxe(*(Vehicule**)vhc2) - taxe(*(Vehicule**) vhc1));
+}
+
+//---------------------------------------------------------------------------
+// Affichage de la taxe
+//---------------------------------------------------------------------------
+
+void affichageTaxe(const Vehicule* vehicule){
+   printf("\n" "%-" ESPACEMENT "s: " "%g" DEVISE "\n",
+      CARACTERISTIQUE_TAXE, taxe(vehicule));
 }

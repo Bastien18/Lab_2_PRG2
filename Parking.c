@@ -16,8 +16,9 @@
 // Inclusions
 //---------------------------------------------------------------------------
 
-#include "Parking.h"
 #include <stdio.h>
+#include "Parking.h"
+#include "AffichageVehicule.h"
 
 //---------------------------------------------------------------------------
 // Fonction d'affichage du parking

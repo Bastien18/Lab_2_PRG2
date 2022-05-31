@@ -12,7 +12,6 @@
   ---------------------------------------------------------------------------
 */
 
-
 #ifndef LAB_02_PRG2_VEHICULE_H
 #define LAB_02_PRG2_VEHICULE_H
 
@@ -23,23 +22,11 @@
 #include <stdint.h>
 
 //---------------------------------------------------------------------------
-// Definition des symboles
-//---------------------------------------------------------------------------
-
-#define POIDS_UNITEE       "[kg]"
-#define CYLINDRE_UNITEE    "[cm3]"
-#define VOLUME_UNITEE      "[m3]"
-#define REJET_CO2_UNITEE   "[g/km]"
-#define PUISSANCE_UNITEE   "[CV]"
-#define DEVISE             "CHF"
-#define ESPACEMENT			"20"
-
-//---------------------------------------------------------------------------
 // Definition des types
 //---------------------------------------------------------------------------
 
-typedef const char* Matricule;
-typedef const char* const Marque;
+typedef char* Matricule;
+typedef const char* Marque;
 typedef enum {VOITURE, CAMIONNETTE} TypeVehicule;
 //TODO remplacer GammeVehicule en GammeVoiture chez steph
 typedef enum {STANDARD, HAUT_GAMME} GammeVoiture;
@@ -96,12 +83,6 @@ Vehicule voitureHautGamme(Matricule matricule, Marque marque, uint16_t poids,
                           uint16_t puissance);
 
 Vehicule camionnette(Matricule matricule, Marque marque, double volumeTransport);
-
-//---------------------------------------------------------------------------
-// Affichage des caractéristiques d'un véhicule
-//---------------------------------------------------------------------------
-
-void affichage(const Vehicule* vehicule);
 
 #endif //LAB_02_PRG2_VEHICULE_H
 
