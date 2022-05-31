@@ -1,0 +1,3 @@
+C:\Users\proky\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5591.52\bin\cmake\win\bin\cmake.exe -E rm -f CMakeFiles\Lab_2_PRG2.dir/objects.a
+C:\PROGRA~1\MINGW-~1\X86_64~1.0-W\mingw64\bin\ar.exe qc CMakeFiles\Lab_2_PRG2.dir/objects.a @CMakeFiles\Lab_2_PRG2.dir\objects1.rsp
+C:\PROGRA~1\MINGW-~1\X86_64~1.0-W\mingw64\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\Lab_2_PRG2.dir/objects.a -Wl,--no-whole-archive -o Lab_2_PRG2.exe -Wl,--out-implib,libLab_2_PRG2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Lab_2_PRG2.dir\linklibs.rsp

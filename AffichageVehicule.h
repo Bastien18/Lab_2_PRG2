@@ -30,7 +30,23 @@
 #define VOLUME_UNITEE      "[m3]"
 #define REJET_CO2_UNITEE   "[g/km]"
 #define PUISSANCE_UNITEE   "[CV]"
-#define ESPACEMENT			"20"
+
+#define VOITURE_STR        "Voiture"
+#define CAMIONNETTE_STR    "Camionnette"
+#define HAUTE_GAMME_STR    "Haut de gamme"
+#define STANDARD_GAMME_STR "Standard"
+#define MARQUE_STR         "Marque"
+#define MATRICULE_STR      "Matricule"
+#define CATEGORIE_STR      "Categorie"
+#define GAMME_STR          "Gamme"
+#define POIDS_STR          "Poids"
+#define CYLINDREE_STR      "Cylindree"
+#define REJET_STR          "Rejet CO2"
+#define PUISSANCE_STR      "Puissance"
+#define VOLUME_STR         "Volume de transport"
+
+#define ESPACEMENT		   "20"
+#define SEPARATEUR         "=================================================\n"
 
 //---------------------------------------------------------------------------
 // Affichage des caractéristiques d'un véhicule

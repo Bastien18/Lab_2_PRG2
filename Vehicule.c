@@ -18,10 +18,6 @@
 
 #include "Vehicule.h"
 
-//---------------------------------------------------------------------------
-// Constructeur de voiture de gamme standard
-//---------------------------------------------------------------------------
-
 Vehicule voitureStandard(Matricule matricule, Marque marque, uint16_t poids,
                          uint16_t cylindre, uint16_t rejetCo2) {
 
@@ -46,9 +42,6 @@ Vehicule voitureStandard(Matricule matricule, Marque marque, uint16_t poids,
 
 }
 
-//---------------------------------------------------------------------------
-// Constructeur de voiture haut de gamme
-//---------------------------------------------------------------------------
 
 Vehicule voitureHautGamme(Matricule matricule, Marque marque, uint16_t poids,
                           uint16_t puissance) {
@@ -71,10 +64,6 @@ Vehicule voitureHautGamme(Matricule matricule, Marque marque, uint16_t poids,
 
    return vhc;
 }
-
-//---------------------------------------------------------------------------
-// Constructeur de camionnette
-//---------------------------------------------------------------------------
 
 Vehicule camionnette(Matricule matricule, Marque marque, double volumeTransport) {
 

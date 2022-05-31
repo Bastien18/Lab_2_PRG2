@@ -28,7 +28,6 @@
 typedef const char* Matricule;
 typedef const char* Marque;
 typedef enum {VOITURE, CAMIONNETTE} TypeVehicule;
-//TODO remplacer GammeVehicule en GammeVoiture chez steph
 typedef enum {STANDARD, HAUT_GAMME} GammeVoiture;
 
 //---------------------------------------------------------------------------

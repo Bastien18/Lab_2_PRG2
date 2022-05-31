@@ -22,121 +22,79 @@
 #include "stdlib.h"
 #include "Parking.h"
 
-//---------------------------------------------------------------------------
-// Variables et constantes
-//---------------------------------------------------------------------------
-
-#define TAILLE_TAXE 9
-#define TAILLE_SEUIL 3
-
-enum TAXE {
-   BASE_CAMIONNETTE,
-   BASE_VOITURE,
-   VOITURE_ECO,
-   VOITURE_POL,
-   VOITURE_GROSSE_CYL,
-   TAUX_CAMIONNETTE,
-   VOITURE_HG,
-   VOITURE_HG_PUISSANT,
-   VOITURE_HG_POID
-};
-const double TAXE_DE[TAILLE_TAXE] = {700.,
-                                     400.,
-                                     0.,
-                                     50.,
-                                     0.05,
-                                     10.,
-                                     200.,
-                                     300.,
-                                     20.};
-
-enum SEUIL {
-   PUISSANCE,
-   CYLINDREE,
-   REJET_CO2
-};
-const uint16_t SEUIL_DE[TAILLE_SEUIL] = {250,
-                                         1400,
-                                         130};
-
-const char* const CARACTERISTIQUE_TAXE = "Taxe annuelle";
-
-double taxe(const Vehicule *vehicule) {
-   const double KG_EN_TONNE = 0.001;
-   double taxe;
+double taxe(const Vehicule* vehicule){
+   double taxe = 0;
 
    switch (vehicule->typeVehicule) {
       case VOITURE:
          switch (vehicule->categorie.voiture.gammeVehicule) {
+
             case STANDARD:
-               if (vehicule->categorie.voiture.gamme.standard.cylindre <
-                   SEUIL_DE[CYLINDREE])
-                  if (vehicule->categorie.voiture.gamme.standard.rejetCo2 <
-                      SEUIL_DE[REJET_CO2])
-                     taxe = TAXE_DE[BASE_VOITURE] + TAXE_DE[VOITURE_ECO];
+               if(vehicule->categorie.voiture.gamme.standard.cylindre
+                  < SEUIL_CYLINDREE)
+                  if(vehicule->categorie.voiture.gamme.standard.rejetCo2
+                     < SEUIL_REJET_CO2)
+                     taxe = TAXE_BASE_VOITURE + TAXE_VOITURE_ECO;
                   else
-                     taxe = TAXE_DE[BASE_VOITURE] + TAXE_DE[VOITURE_POL];
+                     taxe = TAXE_BASE_VOITURE + TAXE_VOITURE_POL;
                else
-                  taxe = TAXE_DE[BASE_VOITURE] +
-                         TAXE_DE[VOITURE_GROSSE_CYL] *
-                         vehicule->categorie.voiture.gamme.standard.cylindre;
+                  taxe = TAXE_BASE_VOITURE
+                         + TAUX_VOITURE_GROSSE_CYL
+                         * vehicule->categorie.voiture.gamme.standard.cylindre;
                break;
 
             case HAUT_GAMME:
-               if (vehicule->categorie.voiture.gamme.hautGamme.puissance <=
-                   SEUIL_DE[PUISSANCE])
-                  taxe = TAXE_DE[BASE_VOITURE] + TAXE_DE[VOITURE_HG];
+               if(vehicule->categorie.voiture.gamme.hautGamme.puissance
+                  <= SEUIL_PUISSANCE)
+                  taxe = TAXE_BASE_VOITURE + TAXE_VOITURE_HG;
                else
-                  taxe = TAXE_DE[BASE_VOITURE] + TAXE_DE[VOITURE_HG_PUISSANT]
-                         + vehicule->categorie.voiture.poids * KG_EN_TONNE
-                           * TAXE_DE[VOITURE_HG_POID];
+                  taxe = TAXE_BASE_VOITURE
+                         + TAXE_VOITURE_HG_PUISSANT
+                         + TAUX_VOITURE_HG_PUISSANT
+                         * vehicule->categorie.voiture.poids / 1000.;
                break;
          }
          break;
 
       case CAMIONNETTE:
-         taxe = vehicule->categorie.camionnette.volumeTransport *
-                TAXE_DE[TAUX_CAMIONNETTE]
-                + TAXE_DE[BASE_CAMIONNETTE];
+         taxe = vehicule->categorie.camionnette.volumeTransport
+                * TAUX_CAMIONNETTE
+                + TAXE_BASE_CAMIONNETTE;
          break;
    }
-   return arrondiAu5Centimes(taxe);
+   return arrondis5Centimes(taxe);
 }
 
-double *tabDeTaxe(const Vehicule *debutGarage, size_t taille,
-                  int (*estCritere)(const Vehicule *)) {
+double* tabDeTaxe(const Vehicule* parking[], size_t taille,
+                  int (*estCritere)(const Vehicule*)) {
 
-   size_t nbVehicules = compteVehicules(debutGarage, taille, estCritere);
-   double *tabTax = (double *) calloc(nbVehicules, sizeof(double));
+   size_t nbVehicules = compteVehicules(parking, taille, estCritere);
 
-   if (tabTax) {
-      for (size_t i = 0; i < taille; ++i) {
-         if (estCritere(debutGarage + i)) {
-            *tabTax = taxe(debutGarage + i);
-            ++tabTax;
+   if (!nbVehicules)
+      return NULL;
+
+   double* tabTaxe = (double*) calloc(nbVehicules, sizeof(double));
+
+   if(tabTaxe){
+      for (size_t i = 0, j = 0; i < taille; ++i) {
+         if (estCritere(parking[i])) {
+            tabTaxe[j] = taxe(parking[i]);
+            ++j;
          }
       }
-      return tabTax - nbVehicules;
    }
-   return NULL;
+   return tabTaxe;
 }
 
-double arrondiAu5Centimes(double montant) {
-   const double CINQ_CENTIEME = 0.05;
-   return round(montant / CINQ_CENTIEME) * CINQ_CENTIEME;
+double arrondis5Centimes(double montant) {
+   return round(montant * 20.) / 20.;
 }
 
-//---------------------------------------------------------------------------
-// Comparaison des taxes de véhicules pour qsort
-//---------------------------------------------------------------------------
 
 int compare_taxe(const void* vhc1, const void* vhc2){
 	return (int)(taxe(*(Vehicule**)vhc2) - taxe(*(Vehicule**) vhc1));
 }
 
-//---------------------------------------------------------------------------
-// Affichage de la taxe
-//---------------------------------------------------------------------------
 
 void affichageTaxe(const Vehicule* vehicule){
    printf("\n" "%-" ESPACEMENT "s: " "%g" DEVISE "\n",

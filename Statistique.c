@@ -1,12 +1,24 @@
-//
-// Edited by Stéphane on 30.05.2022
-//
+/*
+  ---------------------------------------------------------------------------
+  Fichier     :
+  Nom du labo :
+  Auteur(s)   : Bastien Pillonel
+  Date        :
+  But         : le but du programme et non le but du laboratoire !!
 
+  Remarque(s) : à compléter
+
+  Compilateur : MingW-w64 g++ 11.2.0
+  ---------------------------------------------------------------------------
+*/
+
+//---------------------------------------------------------------------------
+// Inclusions
+//---------------------------------------------------------------------------
 
 #include "Statistique.h"
-#include <math.h>   // pow
-#include <string.h> // memcpy
-
+#include <math.h>
+#include <string.h>
 
 
 double somme(const double *liste, size_t taille) {
@@ -25,41 +37,36 @@ double moyenne(const double *liste, size_t taille) {
 }
 
 int compareDouble(const void* a, const void* b){
-   // La notation bizarre est due au mauvais comportement entre (-1 et 1)
    return (*(double*)b - *(double*)a) < 0 ? -1 :
           *(double*)b - *(double*)a > 0 ? 1 : 0  ;
 }
 
-
 double mediane(const double *liste, size_t taille) {
-   const int PARITEE = 2;
-   const int LA_DEMI = 2;
    double mediane;
    double *tab = (double *) calloc(taille, sizeof(double));
 
-   if (!tab) { // Assert(tab)
+   if (!tab) {
       return 0.;
    }
-   memcpy(tab, liste, taille * sizeof(double));
-   qsort(tab, sizeof(double), taille, compareDouble);
 
-   if (taille % PARITEE) { // IMPAIRE
-      mediane = tab[taille / LA_DEMI];
-   } else {                // PAIRE
-      mediane = (tab[taille / LA_DEMI - 1] + tab[taille / LA_DEMI]) / LA_DEMI;
+   memcpy(tab, liste, taille * sizeof(double));
+   qsort(tab, taille, sizeof(double), compareDouble);
+
+   if (taille % 2) {
+      mediane = tab[taille / 2];
+   } else {
+      mediane = (tab[taille / 2 - 1] + tab[taille / 2]) / 2;
    }
    free(tab);
    return mediane;
 }
 
 double ecartType(const double *liste, size_t taille) {
-   const int AU_CARRE = 2;
-
    double sommeEcartCaree = 0;
-   double moyenneType = moyenne(liste, taille);
+   double m = moyenne(liste, taille);
 
    for (size_t i = 0; i < taille; ++i) {
-      sommeEcartCaree += pow(liste[i] - moyenneType, AU_CARRE);
+      sommeEcartCaree += pow(liste[i] - m, 2.);
    }
 
    return sqrt(sommeEcartCaree / (double) taille);

@@ -12,7 +12,6 @@
   ---------------------------------------------------------------------------
 */
 
-
 #ifndef LAB_02_PRG2_TAXE_H
 #define LAB_02_PRG2_TAXE_H
 
@@ -26,8 +25,24 @@
 // Définition des symboles
 //---------------------------------------------------------------------------
 
-#define DEVISE             "CHF"
-#define ESPACEMENT			"20"
+#define 	 TAXE_BASE_CAMIONNETTE 		700.
+#define   TAXE_BASE_VOITURE		   400.
+#define   TAXE_VOITURE_ECO   			0.
+#define   TAXE_VOITURE_POL				50.
+#define   TAUX_VOITURE_GROSSE_CYL 	0.05
+#define   TAUX_CAMIONNETTE				10.
+#define   TAXE_VOITURE_HG				200.
+#define   TAXE_VOITURE_HG_PUISSANT	300.
+#define   TAUX_VOITURE_HG_PUISSANT	20
+
+#define   SEUIL_PUISSANCE   250
+#define   SEUIL_CYLINDREE	 1400
+#define   SEUIL_REJET_CO2	 130
+
+#define   DEVISE       "CHF"
+#define   ESPACEMENT   "20"
+
+#define   CARACTERISTIQUE_TAXE  "Taxe annuelle"
 
 //---------------------------------------------------------------------------
 // Calcul de la taxe annuelle d'un véhicule
@@ -35,36 +50,25 @@
 
 double taxe(const Vehicule* vehicule);
 
-/**
- * Cette fonction établi un tableau regroupant le taxes annuelles de chaque véhicule
- * correspondant à un critère, selon l'ordre d'apparition du tableau d'origine.
- * @param debutGarage Le début du tableau de véhicules
- * @param taille      La taille du tableau
- * @param estCritere  une fonction de validation pour le critère souhaité
- * @return un tableau contenant la montant de la taxe annuel pour chaque véhicule
- *         qui correspond au critère.
- */
-double* tabDeTaxe(const Vehicule* debutGarage, size_t taille,
-                  int(*estCritere)(const Vehicule*));
 
 //---------------------------------------------------------------------------
-// Arrondis des prix à 5 centimes
+// Fonction retournant un tableau des taxes des véhicules du critère
 //---------------------------------------------------------------------------
+
+double* tabDeTaxe(const Vehicule* parking[], size_t taille,
+                  int(*estCritere)(const Vehicule*));
+
 
 double arrondis5Centimes(double montant);
 
 //---------------------------------------------------------------------------
-// Comparaison des taxes de véhicules pour qsort
+// Comparaison des taxes de véhicules (utilisé pour qsort)
 //---------------------------------------------------------------------------
 
 int compare_taxe(const void* vhc1, const void* vhc2);
 
-//---------------------------------------------------------------------------
-// Affichage de la taxe
-//---------------------------------------------------------------------------
 
 void affichageTaxe(const Vehicule* vehicule);
 
-double arrondiAu5Centimes(double montant);
 
 #endif //LAB_02_PRG2_TAXE_H

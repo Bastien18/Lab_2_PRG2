@@ -25,16 +25,17 @@
 // Variables et constantes
 //---------------------------------------------------------------------------
 
-extern const char* const TYPES_VEHICULE[];
-extern const char* const GAMME_VEHICULE[];
-extern const char* const CARACTERISTIQUES[];
+const char* const TYPES_VEHICULE[] 		= {VOITURE_STR, CAMIONNETTE_STR};
+const char* const GAMME_VEHICULE[] 		= {STANDARD_GAMME_STR, HAUTE_GAMME_STR};
+const char* const CARACTERISTIQUES[]	= {MARQUE_STR, MATRICULE_STR,
+                                          CATEGORIE_STR, GAMME_STR,
+                                          POIDS_STR, CYLINDREE_STR,
+                                          REJET_STR, PUISSANCE_STR,
+                                          VOLUME_STR};
 
-//---------------------------------------------------------------------------
-// Fonction d'affichage d'un vehicule
-//---------------------------------------------------------------------------
 
 void affichage(const Vehicule* vehicule){
-   printf("=================================================\n"
+   printf(SEPARATEUR
       "%-" ESPACEMENT "s" ": %s\n"
       "%-" ESPACEMENT "s" ": %s\n"
       "%-" ESPACEMENT "s" ": %s\n",
@@ -76,5 +77,6 @@ void affichage(const Vehicule* vehicule){
    }
 
    affichageTaxe(vehicule);
-   printf("=================================================\n\n");
+   printf(SEPARATEUR);
+   printf("\n");
 }

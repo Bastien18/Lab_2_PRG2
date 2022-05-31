@@ -22,18 +22,6 @@
 #include "Parking.h"
 
 //---------------------------------------------------------------------------
-// Variables et constantes
-//---------------------------------------------------------------------------
-
-const char* const TYPES_VEHICULE[] 		= {"Voiture", "Camionnette"};
-const char* const GAMME_VEHICULE[] 		= {"Standard", "Haut de gamme"};
-const char* const CARACTERISTIQUES[]	= {"Marque", "Matricule",
-                                          "Categorie", "Gamme",
-                                          "Poids", "Cylindree",
-                                          "Rejet CO2", "Puissance",
-                                          "Volume de transport"};
-
-//---------------------------------------------------------------------------
 // Programme principal
 //---------------------------------------------------------------------------
 
@@ -58,11 +46,8 @@ int main(void) {
 	qsort(parking, TAILLE_PARKING, sizeof(Vehicule *), compare_taxe);
 
 	// Afficher le parking
-	affichageParking(parking, TAILLE_PARKING);
-   affichageStatistique(parking,TAILLE_PARKING);
+	affichageParking((const Vehicule **) parking, TAILLE_PARKING);
+   affichageStatistique((const Vehicule **) parking, TAILLE_PARKING);
 
-
-
-
-   return 0;
+   return EXIT_SUCCESS;
 }

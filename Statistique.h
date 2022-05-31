@@ -1,11 +1,31 @@
-//
-// Edited by Stéphane on 24.05.2022.
-//
+/*
+  ---------------------------------------------------------------------------
+  Fichier     :
+  Nom du labo :
+  Auteur(s)   : Bastien Pillonel
+  Date        :
+  But         : le but du programme et non le but du laboratoire !!
+
+  Remarque(s) : à compléter
+
+  Compilateur : MingW-w64 g++ 11.2.0
+  ---------------------------------------------------------------------------
+*/
+
 
 #ifndef LAB_02_PRG2_STATISTIQUE_H
 #define LAB_02_PRG2_STATISTIQUE_H
 
+//---------------------------------------------------------------------------
+// Inclusions
+//---------------------------------------------------------------------------
+
 #include <stdlib.h>
+
+
+//---------------------------------------------------------------------------
+// Fonction de statistiques
+//---------------------------------------------------------------------------
 
 double somme(const double *liste, size_t taille);
 
