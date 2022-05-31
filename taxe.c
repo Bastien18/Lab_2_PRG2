@@ -20,7 +20,6 @@ enum TAXE {
    VOITURE_HG_PUISSANT,
    VOITURE_HG_POID
 };
-
 const double TAXE_DE[TAILLE_TAXE] = {700.,
                                      400.,
                                      0.,
@@ -32,10 +31,13 @@ const double TAXE_DE[TAILLE_TAXE] = {700.,
                                      20.};
 
 enum SEUIL {
-   PUISSANCE, CYLINDREE, REJET_CO2
+   PUISSANCE,
+   CYLINDREE,
+   REJET_CO2
 };
-const uint16_t SEUIL_DE[TAILLE_SEUIL] = {250, 1400, 130};
-
+const uint16_t SEUIL_DE[TAILLE_SEUIL] = {250,
+                                         1400,
+                                         130};
 
 double taxe(const Vehicule *vehicule) {
    const double KG_EN_TONNE = 0.001;
@@ -94,9 +96,14 @@ double *tabDeTaxe(const Vehicule *debutGarage, size_t taille,
       }
       return tabTax - nbVehicules;
    }
+   return NULL;
 }
 
 double arrondiAu5Centimes(double montant) {
    const double CINQ_CENTIEME = 0.05;
    return round(montant / CINQ_CENTIEME) * CINQ_CENTIEME;
+}
+
+int compare_taxe(const void* vhc1, const void* vhc2){
+   return (int)(taxe(*(Vehicule**)vhc2) - taxe(*(Vehicule**) vhc1));
 }

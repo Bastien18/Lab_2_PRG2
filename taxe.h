@@ -9,7 +9,7 @@
 /**
  * Cette fonction calcule le montant de taxe annuel pour un véhicule en particulier.
  * @param vehicule
- * @return le resultat du calcule
+ * @return le résultat du calcule
  */
 double taxe(const Vehicule *vehicule);
 
@@ -26,5 +26,7 @@ double* tabDeTaxe(const Vehicule* debutGarage, size_t taille,
                   int(*estCritere)(const Vehicule*));
 
 double arrondiAu5Centimes(double montant);
+
+int compare_taxe(const void* vhc1, const void* vhc2);
 
 #endif //LAB_02_PRG2_TAXE_H
