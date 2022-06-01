@@ -81,7 +81,7 @@ typedef struct {
 // Prend les paramètres nécessaires au remplissage de chaque champ caractérisant
 // chaque catégorie.
 //
-// Retour:
+// Retour :
 // Une structure véhicule correspondante
 //---------------------------------------------------------------------------
 

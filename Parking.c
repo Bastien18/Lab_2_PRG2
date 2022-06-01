@@ -73,8 +73,8 @@ void affichageStatistique(const Vehicule* parking[], size_t taille) {
       printf(SEPARATEUR);
       printf("%s\n", LISTE_TYPE[i]);
 
-      size_t nbrTaxes = compteVehicules(parking, taille, func[i]);
-      double* tableauTaxes = tabDeTaxe(parking, taille, func[i]);
+      size_t nbrTaxes = compteVehicules(parking, taille, tabFonction[i]);
+      double* tableauTaxes = tabDeTaxe(parking, taille, tabFonction[i]);
 
       if(!tableauTaxes) {
          printf(MSG_CATEGORIE_VIDE "%s\n", LISTE_TYPE[i]);

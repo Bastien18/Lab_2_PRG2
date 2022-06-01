@@ -25,7 +25,7 @@ CMakeFiles/Lab_2_PRG2.dir/AffichageVehicule.c.obj: ../AffichageVehicule.c \
   ../Taxe.h
 
 CMakeFiles/Lab_2_PRG2.dir/Parking.c.obj: ../Parking.c \
-  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/stdio.h \
+  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/stdlib.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/_mingw.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
@@ -33,6 +33,12 @@ CMakeFiles/Lab_2_PRG2.dir/Parking.c.obj: ../Parking.c \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_directx.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/limits.h \
+  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/syslimits.h \
+  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/limits.h \
+  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/malloc.h \
+  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/stdio.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/_mingw_print_push.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
@@ -44,19 +50,12 @@ CMakeFiles/Lab_2_PRG2.dir/Parking.c.obj: ../Parking.c \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/stdint.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stddef.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/stddef.h \
-  ../Statistique.h \
-  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/stdlib.h \
-  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/limits.h \
-  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/syslimits.h \
-  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/limits.h \
-  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
-  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/malloc.h \
+  ../Taxe.h \
   ../AffichageVehicule.h \
-  ../Taxe.h
+  ../Statistique.h
 
 CMakeFiles/Lab_2_PRG2.dir/Statistique.c.obj: ../Statistique.c \
-  ../Statistique.h \
-  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/stdlib.h \
+  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/math.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/_mingw.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
@@ -64,14 +63,15 @@ CMakeFiles/Lab_2_PRG2.dir/Statistique.c.obj: ../Statistique.c \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_directx.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/string.h \
+  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h \
+  ../Statistique.h \
+  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/stdlib.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/limits.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/syslimits.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/limits.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
-  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/malloc.h \
-  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/math.h \
-  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/string.h \
-  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h
+  C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/malloc.h
 
 CMakeFiles/Lab_2_PRG2.dir/Taxe.c.obj: ../Taxe.c \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/math.h \
@@ -100,8 +100,7 @@ CMakeFiles/Lab_2_PRG2.dir/Taxe.c.obj: ../Taxe.c \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/limits.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/malloc.h \
-  ../Parking.h \
-  ../Statistique.h
+  ../Parking.h
 
 CMakeFiles/Lab_2_PRG2.dir/Vehicule.c.obj: ../Vehicule.c \
   ../Vehicule.h \
@@ -137,8 +136,7 @@ CMakeFiles/Lab_2_PRG2.dir/main.c.obj: ../main.c \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stddef.h \
   C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/stddef.h \
   ../Taxe.h \
-  ../Parking.h \
-  ../Statistique.h
+  ../Parking.h
 
 
 ../AffichageVehicule.c:
@@ -199,13 +197,13 @@ C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/lib/gcc/x
 
 ../Parking.c:
 
-../Parking.h:
-
-../Statistique.h:
-
 C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/syslimits.h:
 
 C:/Program\ Files/mingw-w64/x86_64-8.1.0-win32-sjlj-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/limits.h:
+
+../Parking.h:
+
+../Statistique.h:
 
 ../Statistique.c:
 

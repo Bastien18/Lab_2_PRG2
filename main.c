@@ -11,7 +11,7 @@
                 les statistiques par rapport à la taxe pour chaque catégorie de
                 véhicules.
 
-  Remarque(s) : Pour chaque module .h seules les fonctions jugées nécessaires ont
+  Remarque(s) : Pour chaque module.h seules les fonctions jugées nécessaires ont
                 été commentée selon format Doxygène.
 
   Compilateur : MingW-w64 g++ 11.2.0

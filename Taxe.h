@@ -7,7 +7,7 @@
   But         : Met à disposition les fonctions suivantes:
                   -  Fonction de calcul de la taxe annuelle d'un véhicule
 
-                  -  Fonction retournant un tableau /!\ créer dynamiquement /!\
+                  -  Fonction retournant un tableau /!\ créé dynamiquement /!\
                      avec toutes les taxes d'une catégorie de véhicules.
 
                   -  Fonction d'arrondis du prix à 5 centimes.
@@ -19,7 +19,7 @@
                      dans la fonction d'affichage d'un véhicule.
 
 
-  Remarque(s) : à compléter
+  Remarque(s) : -
 
   Compilateur : MingW-w64 g++ 11.2.0
   ---------------------------------------------------------------------------

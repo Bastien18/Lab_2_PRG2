@@ -6,7 +6,7 @@
   Date        : 01.06.2022
   But         : Met à disposition les fonctions permettant d'effectuer la
                 somme, moyenne, médiane et l'écart type d'un tableau de double
-                passer en paramètre.
+                passé en paramètre.
 
   Remarque(s) : -
 

@@ -7,17 +7,17 @@
   But         : Ce fichier met à disposition :
                   -  Les fonctions permettant de vérifier la catégorie d'un
                      Véhicule (utile lors de la création des tableaux de taxe
-                     pour chaque catégorie et le comptage du nbr de véhicule
+                     pour chaque catégorie et le comptage du nombre de véhicules
                      d'une catégorie)
 
                   -  Une fonction permettant de compter le nombre de véhicules
                      d'une catégorie.
 
-                  -  1 fonction d'affichage du parking (utilise la fonction
+                  -  Une fonction d'affichage du parking (utilise la fonction
                      affichage d'un véhicule dans module AffichageVéhicule
                      pour tous les véhicules du parking).
 
-                  -  1 fonction d'affichage des statistiques (somme, moyenne,
+                  -  Une fonction d'affichage des statistiques (somme, moyenne,
                      médiane, écart type) pour chaque catégorie.
 
   Remarque(s) : Les fonctions de vérification de catégorie retourne un type
@@ -82,7 +82,7 @@ int estVoitureHauteGamme(const Vehicule* vehicule);
 
 int estCamionnette(const Vehicule* vehicule);
 
-static f func[NBR_DE_TYPE] = {&estVoitureStandard,
+static f tabFonction[NBR_DE_TYPE] = {&estVoitureStandard,
                      &estVoitureHauteGamme,
                      &estCamionnette
 };
