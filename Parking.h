@@ -60,7 +60,7 @@ typedef int (*f)(const Vehicule*);
 
 #define ESPACEMENT_STAT             "13"
 
-#define MSG_TABLEAU_VIDE            "Tableau vide."
+#define MSG_TABLEAU_VIDE            "Tableau vide\n"
 #define MSG_CATEGORIE_VIDE          "Il n'y a pas de "
 #define AFFICHAGE_PARKING_STR       "************ Affichage parking ************\n"
 #define AFFICHAGE_STATISTIQUE_STR   "********** Affichage statistique **********\n"
