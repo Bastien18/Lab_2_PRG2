@@ -68,7 +68,7 @@ typedef int (*f)(const Vehicule*);
 // Déclaration des variables et constantes
 //---------------------------------------------------------------------------
 
-static const char* STATISTIQUE[]	= {SOMME_STR, MOYENNE_STR, MEDIANE_STR, ECART_STR};
+static const char* STATISTIQUE[]  = {SOMME_STR, MOYENNE_STR, MEDIANE_STR, ECART_STR};
 static const char* LISTE_TYPE[]   = {TYPE_VOITURE_STD_STR, TYPE_VOITURE_HG_STR,
                                      TYPE_CAMIONNETTE_STR};
 
