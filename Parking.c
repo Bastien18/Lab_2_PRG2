@@ -63,7 +63,7 @@ size_t compteVehicules(const Vehicule* debutParking[], size_t tailleParking,
 void affichageStatistique(const Vehicule* parking[], size_t taille) {
    printf(AFFICHAGE_STATISTIQUE_STR);
 
-   if(!taille) {
+   if(!taille || !parking) {
       printf("Liste vide\n");
       return;
    }
