@@ -1,12 +1,12 @@
 /*
   ---------------------------------------------------------------------------
-  Fichier     :
-  Nom du labo :
-  Auteur(s)   : Bastien Pillonel
-  Date        :
-  But         : le but du programme et non le but du laboratoire !!
+  Fichier     : Taxe.c
+  Nom du labo : Laboratoire 2
+  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento
+  Date        : 01.06.2022
+  But         : Fichier de définition des fonctions déclarées dans Taxe.h
 
-  Remarque(s) : à compléter
+  Remarque(s) : -
 
   Compilateur : MingW-w64 g++ 11.2.0
   ---------------------------------------------------------------------------
@@ -21,6 +21,10 @@
 #include "Taxe.h"
 #include "stdlib.h"
 #include "Parking.h"
+
+//---------------------------------------------------------------------------
+// Calcul de la taxe annuelle d'un véhicule
+//---------------------------------------------------------------------------
 
 double taxe(const Vehicule* vehicule){
    double taxe = 0;
@@ -39,8 +43,8 @@ double taxe(const Vehicule* vehicule){
                      taxe = TAXE_BASE_VOITURE + TAXE_VOITURE_POL;
                else
                   taxe = TAXE_BASE_VOITURE
-                         + TAUX_VOITURE_GROSSE_CYL
-                         * vehicule->categorie.voiture.gamme.standard.cylindre;
+                     + TAUX_VOITURE_GROSSE_CYL
+                     * vehicule->categorie.voiture.gamme.standard.cylindre;
                break;
 
             case HAUT_GAMME:
@@ -49,21 +53,25 @@ double taxe(const Vehicule* vehicule){
                   taxe = TAXE_BASE_VOITURE + TAXE_VOITURE_HG;
                else
                   taxe = TAXE_BASE_VOITURE
-                         + TAXE_VOITURE_HG_PUISSANT
-                         + TAUX_VOITURE_HG_PUISSANT
-                         * vehicule->categorie.voiture.poids / 1000.;
+                     + TAXE_VOITURE_HG_PUISSANT
+                     + TAUX_VOITURE_HG_PUISSANT
+                     * vehicule->categorie.voiture.poids / 1000.;
                break;
          }
          break;
 
       case CAMIONNETTE:
          taxe = vehicule->categorie.camionnette.volumeTransport
-                * TAUX_CAMIONNETTE
-                + TAXE_BASE_CAMIONNETTE;
+            * TAUX_CAMIONNETTE
+            + TAXE_BASE_CAMIONNETTE;
          break;
    }
    return arrondis5Centimes(taxe);
 }
+
+//---------------------------------------------------------------------------
+// Fonction retournant un tableau des taxes des véhicules d'une catégorie
+//---------------------------------------------------------------------------
 
 double* tabDeTaxe(const Vehicule* parking[], size_t taille,
                   int (*estCritere)(const Vehicule*)) {
@@ -86,17 +94,28 @@ double* tabDeTaxe(const Vehicule* parking[], size_t taille,
    return tabTaxe;
 }
 
+//---------------------------------------------------------------------------
+// Fonction retournant l'arrondis d'un prix à 5 centimes
+//---------------------------------------------------------------------------
+
 double arrondis5Centimes(double montant) {
    return round(montant * 20.) / 20.;
 }
 
+//---------------------------------------------------------------------------
+// Comparaison des taxes de véhicules (utilisé pour qsort)
+//---------------------------------------------------------------------------
 
 int compare_taxe(const void* vhc1, const void* vhc2){
-	return (int)(taxe(*(Vehicule**)vhc2) - taxe(*(Vehicule**) vhc1));
+   return (taxe(*(Vehicule**)vhc2) - taxe(*(Vehicule**)vhc1))  < 0 ? -1 :
+          taxe(*(Vehicule**)vhc2) - taxe(*(Vehicule**)vhc1)    > 0 ? 1 : 0;
 }
 
+//---------------------------------------------------------------------------
+// Fonction d'affichage de la taxe d'un véhicule
+//---------------------------------------------------------------------------
 
 void affichageTaxe(const Vehicule* vehicule){
-   printf("\n" "%-" ESPACEMENT "s: " "%g" DEVISE "\n",
-      CARACTERISTIQUE_TAXE, taxe(vehicule));
+   printf("\n" "%-" ESPACEMENT_TAXE "s: " "%g" DEVISE "\n",
+          TAXE_STR, taxe(vehicule));
 }

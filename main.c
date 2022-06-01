@@ -1,12 +1,18 @@
 /*
   ---------------------------------------------------------------------------
-  Fichier     :
-  Nom du labo :
-  Auteur(s)   : Bastien Pillonel
-  Date        :
-  But         : le but du programme et non le but du laboratoire !!
+  Fichier     : main.c
+  Nom du labo : Laboratoire 2
+  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento
+  Date        : 01.06.2022
+  But         : Programme principal. Initialise un parking (tableau rempli avec
+                l'adresse de plusieurs véhicules), le trie par taxes annuelles
+                décroissantes, affiche tous les véhicules du parking avec leurs
+                caractéristiques et leurs taxes annuelles. Enfin on affiche
+                les statistiques par rapport à la taxe pour chaque catégorie de
+                véhicules.
 
-  Remarque(s) : à compléter
+  Remarque(s) : Pour chaque module .h seules les fonctions jugées nécessaires ont
+                été commentée selon format Doxygène.
 
   Compilateur : MingW-w64 g++ 11.2.0
   ---------------------------------------------------------------------------

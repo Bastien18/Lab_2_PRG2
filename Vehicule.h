@@ -1,12 +1,14 @@
 /*
   ---------------------------------------------------------------------------
-  Fichier     :
-  Nom du labo :
-  Auteur(s)   : Bastien Pillonel
-  Date        :
-  But         : le but du programme et non le but du laboratoire !!
+  Fichier     : Vehicule.h
+  Nom du labo : Laboratoire 2
+  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento
+  Date        : 01.06.2022
+  But         : Met à disposition les définitions de types utilisés dans
+                la structure composée véhicule. Ainsi qu'un constructeur pour
+                chaque catégorie de véhicule.
 
-  Remarque(s) : à compléter
+  Remarque(s) : -
 
   Compilateur : MingW-w64 g++ 11.2.0
   ---------------------------------------------------------------------------
@@ -74,6 +76,13 @@ typedef struct {
 
 //---------------------------------------------------------------------------
 // Constructeurs des différents véhicules
+//---------------------------------------------------------------------------
+// Paramètre:
+// Prend les paramètres nécessaires au remplissage de chaque champ caractérisant
+// chaque catégorie.
+//
+// Retour:
+// Une structure véhicule correspondante
 //---------------------------------------------------------------------------
 
 Vehicule voitureStandard(Matricule matricule, Marque marque, uint16_t poids,

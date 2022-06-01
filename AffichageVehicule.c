@@ -1,12 +1,13 @@
 /*
   ---------------------------------------------------------------------------
-  Fichier     :
-  Nom du labo :
-  Auteur(s)   : Bastien Pillonel
-  Date        :
-  But         : le but du programme et non le but du laboratoire !!
+  Fichier     : AffichageVehicule.c
+  Nom du labo : Laboratoire 2
+  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento
+  Date        : 01.06.2022
+  But         : Fichier de définition des fonctions déclarées dans
+                AffichageVehicule.h
 
-  Remarque(s) : à compléter
+  Remarque(s) : -
 
   Compilateur : MingW-w64 g++ 11.2.0
   ---------------------------------------------------------------------------
@@ -22,48 +23,39 @@
 #include "Taxe.h"
 
 //---------------------------------------------------------------------------
-// Variables et constantes
+// Affichage des caractéristiques d'un véhicule
 //---------------------------------------------------------------------------
-
-const char* const TYPES_VEHICULE[] 		= {VOITURE_STR, CAMIONNETTE_STR};
-const char* const GAMME_VEHICULE[] 		= {STANDARD_GAMME_STR, HAUTE_GAMME_STR};
-const char* const CARACTERISTIQUES[]	= {MARQUE_STR, MATRICULE_STR,
-                                          CATEGORIE_STR, GAMME_STR,
-                                          POIDS_STR, CYLINDREE_STR,
-                                          REJET_STR, PUISSANCE_STR,
-                                          VOLUME_STR};
-
 
 void affichage(const Vehicule* vehicule){
    printf(SEPARATEUR
       "%-" ESPACEMENT "s" ": %s\n"
       "%-" ESPACEMENT "s" ": %s\n"
       "%-" ESPACEMENT "s" ": %s\n",
-      CARACTERISTIQUES[0], vehicule->marque,
-      CARACTERISTIQUES[1], vehicule->matricule,
-      CARACTERISTIQUES[2], TYPES_VEHICULE[vehicule->typeVehicule]);
+      MARQUE_STR, vehicule->marque,
+      MATRICULE_STR, vehicule->matricule,
+      CATEGORIE_STR, TYPES_VEHICULE[vehicule->typeVehicule]);
 
    switch (vehicule->typeVehicule) {
       case VOITURE:
          printf("%-" ESPACEMENT "s" ": %s\n"
             "%-" ESPACEMENT "s" ": %" PRIu16 POIDS_UNITEE "\n",
-            CARACTERISTIQUES[3],
+            GAMME_STR,
             GAMME_VEHICULE[vehicule->categorie.voiture.gammeVehicule],
-            CARACTERISTIQUES[4], vehicule->categorie.voiture.poids);
+            POIDS_STR, vehicule->categorie.voiture.poids);
 
          switch (vehicule->categorie.voiture.gammeVehicule) {
             case STANDARD:
                printf("%-" ESPACEMENT "s" ": %" PRIu16 CYLINDRE_UNITEE "\n"
                   "%-" ESPACEMENT "s" ": %" PRIu16 REJET_CO2_UNITEE "\n",
-                  CARACTERISTIQUES[5],
+                  CYLINDREE_STR,
                   vehicule->categorie.voiture.gamme.standard.cylindre,
-                  CARACTERISTIQUES[6],
+                  REJET_STR,
                   vehicule->categorie.voiture.gamme.standard.rejetCo2);
                break;
 
             case HAUT_GAMME:
                printf("%-" ESPACEMENT "s" ": %" PRIu16 PUISSANCE_UNITEE "\n",
-                  CARACTERISTIQUES[7],
+                  PUISSANCE_STR,
                   vehicule->categorie.voiture.gamme.hautGamme.puissance);
                break;
          }
@@ -71,7 +63,7 @@ void affichage(const Vehicule* vehicule){
 
       case CAMIONNETTE:
          printf("%-" ESPACEMENT "s" ": %.2f" VOLUME_UNITEE "\n",
-            CARACTERISTIQUES[8],
+            VOLUME_STR,
             vehicule->categorie.camionnette.volumeTransport);
          break;
    }

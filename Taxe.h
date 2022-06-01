@@ -1,10 +1,23 @@
 /*
   ---------------------------------------------------------------------------
-  Fichier     :
-  Nom du labo :
-  Auteur(s)   : Bastien Pillonel
-  Date        :
-  But         : le but du programme et non le but du laboratoire !!
+  Fichier     : taxe.h
+  Nom du labo : Laboratoire 2
+  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento
+  Date        : 01.06.2022
+  But         : Met à disposition les fonctions suivantes:
+                  -  Fonction de calcul de la taxe annuelle d'un véhicule
+
+                  -  Fonction retournant un tableau /!\ créer dynamiquement /!\
+                     avec toutes les taxes d'une catégorie de véhicules.
+
+                  -  Fonction d'arrondis du prix à 5 centimes.
+
+                  -  Fonction de comparaison des taxes de 2 véhicules
+                     => utilisée par qsort.
+
+                  -  Fonction d'affichage de la taxe annuelle => réutilisée
+                     dans la fonction d'affichage d'un véhicule.
+
 
   Remarque(s) : à compléter
 
@@ -25,24 +38,27 @@
 // Définition des symboles
 //---------------------------------------------------------------------------
 
-#define 	 TAXE_BASE_CAMIONNETTE 		700.
-#define   TAXE_BASE_VOITURE		   400.
-#define   TAXE_VOITURE_ECO   			0.
-#define   TAXE_VOITURE_POL				50.
-#define   TAUX_VOITURE_GROSSE_CYL 	0.05
-#define   TAUX_CAMIONNETTE				10.
-#define   TAXE_VOITURE_HG				200.
-#define   TAXE_VOITURE_HG_PUISSANT	300.
-#define   TAUX_VOITURE_HG_PUISSANT	20
+#define   DEVISE           "CHF"
+#define   ESPACEMENT_TAXE  "20"
+#define   TAXE_STR         "Taxe annuelle"
 
-#define   SEUIL_PUISSANCE   250
-#define   SEUIL_CYLINDREE	 1400
-#define   SEUIL_REJET_CO2	 130
+//---------------------------------------------------------------------------
+// Déclaration des variables et constantes
+//---------------------------------------------------------------------------
 
-#define   DEVISE       "CHF"
-#define   ESPACEMENT   "20"
+static const double     TAXE_BASE_CAMIONNETTE      =  700.,
+                        TAXE_BASE_VOITURE          =  400.,
+                        TAXE_VOITURE_ECO           =  0.,
+                        TAXE_VOITURE_POL           =  50.,
+                        TAUX_VOITURE_GROSSE_CYL    =  0.05,
+                        TAUX_CAMIONNETTE           =	10.,
+                        TAXE_VOITURE_HG            =  200.,
+                        TAXE_VOITURE_HG_PUISSANT   =	300.,
+                        TAUX_VOITURE_HG_PUISSANT   =	20.;
 
-#define   CARACTERISTIQUE_TAXE  "Taxe annuelle"
+static const uint16_t   SEUIL_PUISSANCE            =  250,
+                        SEUIL_CYLINDREE            =  1400,
+                        SEUIL_REJET_CO2            =  130;
 
 //---------------------------------------------------------------------------
 // Calcul de la taxe annuelle d'un véhicule
@@ -52,21 +68,27 @@ double taxe(const Vehicule* vehicule);
 
 
 //---------------------------------------------------------------------------
-// Fonction retournant un tableau des taxes des véhicules du critère
+// Fonction retournant un tableau des taxes des véhicules d'une catégorie
 //---------------------------------------------------------------------------
 
 double* tabDeTaxe(const Vehicule* parking[], size_t taille,
                   int(*estCritere)(const Vehicule*));
 
+//---------------------------------------------------------------------------
+// Fonction retournant l'arrondis d'un prix à 5 centimes
+//---------------------------------------------------------------------------
 
 double arrondis5Centimes(double montant);
 
 //---------------------------------------------------------------------------
-// Comparaison des taxes de véhicules (utilisé pour qsort)
+// Comparaison des taxes de véhicules
 //---------------------------------------------------------------------------
 
 int compare_taxe(const void* vhc1, const void* vhc2);
 
+//---------------------------------------------------------------------------
+// Fonction d'affichage de la taxe d'un véhicule
+//---------------------------------------------------------------------------
 
 void affichageTaxe(const Vehicule* vehicule);
 

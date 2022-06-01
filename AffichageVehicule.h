@@ -1,12 +1,14 @@
 /*
   ---------------------------------------------------------------------------
-  Fichier     :
-  Nom du labo :
-  Auteur(s)   : Bastien Pillonel
-  Date        :
-  But         : le but du programme et non le but du laboratoire !!
+  Fichier     : AffichageVehicule.h
+  Nom du labo : Laboratoire 2
+  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento
+  Date        : 01.06.2022
+  But         : Met à disposition la fonction affichant un véhicule et sa
+                taxe annuelle
 
-  Remarque(s) : à compléter
+  Remarque(s) : Réutilisation de la fonction de calcul et affichage de la taxe
+                du module taxe.
 
   Compilateur : MingW-w64 g++ 11.2.0
   ---------------------------------------------------------------------------
@@ -47,6 +49,13 @@
 
 #define ESPACEMENT		   "20"
 #define SEPARATEUR         "=================================================\n"
+
+//---------------------------------------------------------------------------
+// Déclaration des variables et constantes
+//---------------------------------------------------------------------------
+
+static const char* TYPES_VEHICULE[] = {VOITURE_STR, CAMIONNETTE_STR};
+static const char* GAMME_VEHICULE[] = {STANDARD_GAMME_STR, HAUTE_GAMME_STR};
 
 //---------------------------------------------------------------------------
 // Affichage des caractéristiques d'un véhicule

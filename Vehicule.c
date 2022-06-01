@@ -1,12 +1,12 @@
 /*
   ---------------------------------------------------------------------------
-  Fichier     :
-  Nom du labo :
-  Auteur(s)   : Bastien Pillonel
-  Date        :
-  But         : le but du programme et non le but du laboratoire !!
+  Fichier     : Vehicule.c
+  Nom du labo : Laboratoire 2
+  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento
+  Date        : 01.06.2022
+  But         : Fichier de définition des fonctions déclarées dans Vehicule.h
 
-  Remarque(s) : à compléter
+  Remarque(s) : -
 
   Compilateur : MingW-w64 g++ 11.2.0
   ---------------------------------------------------------------------------
@@ -17,6 +17,10 @@
 //---------------------------------------------------------------------------
 
 #include "Vehicule.h"
+
+//---------------------------------------------------------------------------
+// Constructeurs des différents véhicules
+//---------------------------------------------------------------------------
 
 Vehicule voitureStandard(Matricule matricule, Marque marque, uint16_t poids,
                          uint16_t cylindre, uint16_t rejetCo2) {
