@@ -2,7 +2,7 @@
   ---------------------------------------------------------------------------
   Fichier     : Vehicule.c
   Nom du labo : Laboratoire 2
-  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento
+  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento Santos
   Date        : 01.06.2022
   But         : Fichier de définition des fonctions déclarées dans Vehicule.h
 
