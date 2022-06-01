@@ -49,11 +49,11 @@ int main(void) {
 	const size_t TAILLE_PARKING = sizeof(parking) / sizeof(Vehicule*);
 
 	// Trier le parking par taxes annuelles décroissantes
-	qsort(parking, TAILLE_PARKING, sizeof(Vehicule *), compare_taxe);
+	qsort(parking, TAILLE_PARKING, sizeof(Vehicule*), compare_taxe);
 
 	// Afficher le parking
-	affichageParking((const Vehicule **) parking, TAILLE_PARKING);
-   affichageStatistique((const Vehicule **) parking, TAILLE_PARKING);
+	affichageParking((const Vehicule**) parking, TAILLE_PARKING);
+   affichageStatistique((const Vehicule**) parking, TAILLE_PARKING);
 
    return EXIT_SUCCESS;
 }

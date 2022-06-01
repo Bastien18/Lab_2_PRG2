@@ -27,7 +27,6 @@
 //---------------------------------------------------------------------------
 
 double taxe(const Vehicule* vehicule){
-   const double KG_EN_TONNE = 1000.;
    double taxe = 0;
 
    switch (vehicule->typeVehicule) {
@@ -56,7 +55,7 @@ double taxe(const Vehicule* vehicule){
                   taxe = TAXE_BASE_VOITURE
                      + TAXE_VOITURE_HG_PUISSANT
                      + TAUX_VOITURE_HG_PUISSANT
-                     * vehicule->categorie.voiture.poids / KG_EN_TONNE;
+                     * vehicule->categorie.voiture.poids / CONVERSION_TAXE_POIDS;
                break;
          }
          break;

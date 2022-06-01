@@ -60,7 +60,7 @@ typedef int (*f)(const Vehicule*);
 
 #define ESPACEMENT_STAT             "13"
 
-#define MSG_TABLEAU_VIDE            "Tableau vide\n"
+#define MSG_TABLEAU_VIDE            "Le parking est vide\n"
 #define MSG_CATEGORIE_VIDE          "Il n'y a pas de "
 #define AFFICHAGE_PARKING_STR       "************ Affichage parking ************\n"
 #define AFFICHAGE_STATISTIQUE_STR   "********** Affichage statistique **********\n"
@@ -69,9 +69,8 @@ typedef int (*f)(const Vehicule*);
 // Déclaration des variables et constantes
 //---------------------------------------------------------------------------
 
-static const char* STATISTIQUE[]  = {SOMME_STR, MOYENNE_STR, MEDIANE_STR, ECART_STR};
 static const char* LISTE_TYPE[]   = {TYPE_VOITURE_STD_STR, TYPE_VOITURE_HG_STR,
-                                     TYPE_CAMIONNETTE_STR};
+												TYPE_CAMIONNETTE_STR};
 
 //---------------------------------------------------------------------------
 // Fonctions de comparaison de véhicule
@@ -84,9 +83,8 @@ int estVoitureHauteGamme(const Vehicule* vehicule);
 int estCamionnette(const Vehicule* vehicule);
 
 static f tabFonction[NBR_DE_TYPE] = {&estVoitureStandard,
-                                     &estVoitureHauteGamme,
-                                     &estCamionnette
-};
+												&estVoitureHauteGamme,
+                                    &estCamionnette};
 
 //---------------------------------------------------------------------------
 // Compte le nombre de véhicules correspondant à une catégorie

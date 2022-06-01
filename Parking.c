@@ -32,12 +32,12 @@ int estVoitureStandard(const Vehicule* vehicule) {
           && vehicule->categorie.voiture.gammeVehicule == STANDARD;
 }
 
-int estVoitureHauteGamme(const Vehicule *vehicule) {
+int estVoitureHauteGamme(const Vehicule* vehicule) {
    return vehicule->typeVehicule == VOITURE
           && vehicule->categorie.voiture.gammeVehicule == HAUT_GAMME;
 }
 
-int estCamionnette(const Vehicule *vehicule) {
+int estCamionnette(const Vehicule* vehicule) {
    return vehicule->typeVehicule == CAMIONNETTE;
 }
 
