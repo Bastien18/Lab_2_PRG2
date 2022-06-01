@@ -64,7 +64,7 @@ void affichageStatistique(const Vehicule* parking[], size_t taille) {
    printf(AFFICHAGE_STATISTIQUE_STR);
 
    if(!taille || !parking) {
-      printf("Liste vide\n");
+      printf(MSG_TABLEAU_VIDE);
       return;
    }
 
