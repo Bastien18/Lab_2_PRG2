@@ -2,7 +2,7 @@
   ---------------------------------------------------------------------------
   Fichier     : Vehicule.h
   Nom du labo : Laboratoire 2
-  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento
+  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento Santos
   Date        : 01.06.2022
   But         : Met à disposition les définitions de types utilisés dans
                 la structure composée véhicule. Ainsi qu'un constructeur pour
