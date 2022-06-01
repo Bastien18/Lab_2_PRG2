@@ -2,7 +2,7 @@
   ---------------------------------------------------------------------------
   Fichier     : taxe.h
   Nom du labo : Laboratoire 2
-  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento name
+  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento Santos
   Date        : 01.06.2022
   But         : Met à disposition les fonctions suivantes:
                   -  Fonction de calcul de la taxe annuelle d'un véhicule
