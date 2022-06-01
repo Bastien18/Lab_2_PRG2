@@ -2,7 +2,7 @@
   ---------------------------------------------------------------------------
   Fichier     : Parking.h
   Nom du labo : Laboratoire 2
-  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento
+  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento Santos
   Date        : 01.06.2022
   But         : Ce fichier met à disposition :
                   -  Les fonctions permettant de vérifier la catégorie d'un
@@ -69,8 +69,8 @@ typedef int (*f)(const Vehicule*);
 //---------------------------------------------------------------------------
 
 static const char* STATISTIQUE[]	= {SOMME_STR, MOYENNE_STR, MEDIANE_STR, ECART_STR};
-static const char* LISTE_TYPE[]  = {TYPE_VOITURE_STD_STR, TYPE_VOITURE_HG_STR,
-                                    TYPE_CAMIONNETTE_STR};
+static const char* LISTE_TYPE[]   = {TYPE_VOITURE_STD_STR, TYPE_VOITURE_HG_STR,
+                                     TYPE_CAMIONNETTE_STR};
 
 //---------------------------------------------------------------------------
 // Fonctions de comparaison de véhicule
@@ -83,8 +83,8 @@ int estVoitureHauteGamme(const Vehicule* vehicule);
 int estCamionnette(const Vehicule* vehicule);
 
 static f tabFonction[NBR_DE_TYPE] = {&estVoitureStandard,
-                     &estVoitureHauteGamme,
-                     &estCamionnette
+                                     &estVoitureHauteGamme,
+                                     &estCamionnette
 };
 
 //---------------------------------------------------------------------------
