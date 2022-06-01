@@ -47,7 +47,7 @@
 #define PUISSANCE_STR      "Puissance"
 #define VOLUME_STR         "Volume de transport"
 
-#define ESPACEMENT		   "20"
+#define ESPACEMENT         "20"
 #define SEPARATEUR         "=================================================\n"
 
 //---------------------------------------------------------------------------
