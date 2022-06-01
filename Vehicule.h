@@ -29,8 +29,12 @@
 
 typedef const char* Matricule;
 typedef const char* Marque;
-typedef enum {VOITURE, CAMIONNETTE} TypeVehicule;
-typedef enum {STANDARD, HAUT_GAMME} GammeVoiture;
+typedef enum {
+   VOITURE, CAMIONNETTE
+} TypeVehicule;
+typedef enum {
+   STANDARD, HAUT_GAMME
+} GammeVoiture;
 
 //---------------------------------------------------------------------------
 // Definition de la structure composée véhicule
@@ -39,39 +43,39 @@ typedef enum {STANDARD, HAUT_GAMME} GammeVoiture;
 
 typedef struct {
    uint16_t cylindre,
-				rejetCo2;
+            rejetCo2;
 } Standard;
 
 typedef struct {
-   uint16_t 	puissance;
+   uint16_t puissance;
 } HautGamme;
 
 typedef union {
-   Standard 	standard;
-   HautGamme 	hautGamme;
+   Standard    standard;
+   HautGamme   hautGamme;
 } Gamme;
 
 typedef struct {
-   uint16_t 		poids;
-   GammeVoiture 	gammeVehicule;
-   Gamme 			gamme;
+   uint16_t       poids;
+   GammeVoiture   gammeVehicule;
+   Gamme          gamme;
 } Voiture;
 
 typedef struct {
    double volumeTransport;
-  
+
 } Camionnette;
 
 typedef union {
-   Voiture 		voiture;
-   Camionnette	camionnette;
+   Voiture     voiture;
+   Camionnette camionnette;
 } Categorie;
 
 typedef struct {
-   Matricule 		matricule;
-   Marque 			marque;
-   TypeVehicule 	typeVehicule;
-   Categorie 		categorie;
+   Matricule      matricule;
+   Marque         marque;
+   TypeVehicule   typeVehicule;
+   Categorie      categorie;
 } Vehicule;
 
 //---------------------------------------------------------------------------

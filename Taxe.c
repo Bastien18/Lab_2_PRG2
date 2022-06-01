@@ -26,7 +26,7 @@
 // Calcul de la taxe annuelle d'un véhicule
 //---------------------------------------------------------------------------
 
-double taxe(const Vehicule* vehicule){
+double taxe(const Vehicule* vehicule) {
    double taxe = 0;
 
    switch (vehicule->typeVehicule) {
@@ -34,36 +34,37 @@ double taxe(const Vehicule* vehicule){
          switch (vehicule->categorie.voiture.gammeVehicule) {
 
             case STANDARD:
-               if(vehicule->categorie.voiture.gamme.standard.cylindre
-                  < SEUIL_CYLINDREE)
-                  if(vehicule->categorie.voiture.gamme.standard.rejetCo2
-                     < SEUIL_REJET_CO2)
+               if (vehicule->categorie.voiture.gamme.standard.cylindre
+                   < SEUIL_CYLINDREE)
+                  if (vehicule->categorie.voiture.gamme.standard.rejetCo2
+                      < SEUIL_REJET_CO2)
                      taxe = TAXE_BASE_VOITURE + TAXE_VOITURE_ECO;
                   else
                      taxe = TAXE_BASE_VOITURE + TAXE_VOITURE_POL;
                else
                   taxe = TAXE_BASE_VOITURE
-                     + TAUX_VOITURE_GROSSE_CYL
-                     * vehicule->categorie.voiture.gamme.standard.cylindre;
+                         + TAUX_VOITURE_GROSSE_CYL
+                         * vehicule->categorie.voiture.gamme.standard.cylindre;
                break;
 
             case HAUT_GAMME:
-               if(vehicule->categorie.voiture.gamme.hautGamme.puissance
-                  <= SEUIL_PUISSANCE)
+               if (vehicule->categorie.voiture.gamme.hautGamme.puissance
+                   <= SEUIL_PUISSANCE)
                   taxe = TAXE_BASE_VOITURE + TAXE_VOITURE_HG;
                else
                   taxe = TAXE_BASE_VOITURE
-                     + TAXE_VOITURE_HG_PUISSANT
-                     + TAUX_VOITURE_HG_PUISSANT
-                     * vehicule->categorie.voiture.poids / CONVERSION_TAXE_POIDS;
+                         + TAXE_VOITURE_HG_PUISSANT
+                         + TAUX_VOITURE_HG_PUISSANT
+                         * vehicule->categorie.voiture.poids /
+                           CONVERSION_TAXE_POIDS;
                break;
          }
          break;
 
       case CAMIONNETTE:
          taxe = vehicule->categorie.camionnette.volumeTransport
-            * TAUX_CAMIONNETTE
-            + TAXE_BASE_CAMIONNETTE;
+                * TAUX_CAMIONNETTE
+                + TAXE_BASE_CAMIONNETTE;
          break;
    }
    return arrondis5Centimes(taxe);
@@ -74,7 +75,7 @@ double taxe(const Vehicule* vehicule){
 //---------------------------------------------------------------------------
 
 double* tabDeTaxe(const Vehicule* parking[], size_t taille,
-                  int (*estCritere)(const Vehicule*)) {
+                  int (* estCritere)(const Vehicule*)) {
 
    size_t nbVehicules = compteVehicules(parking, taille, estCritere);
 
@@ -83,7 +84,7 @@ double* tabDeTaxe(const Vehicule* parking[], size_t taille,
 
    double* tabTaxe = (double*) calloc(nbVehicules, sizeof(double));
 
-   if(tabTaxe){
+   if (tabTaxe) {
       for (size_t i = 0, j = 0; i < taille; ++i) {
          if (estCritere(parking[i])) {
             tabTaxe[j] = taxe(parking[i]);
@@ -106,16 +107,16 @@ double arrondis5Centimes(double montant) {
 // Comparaison des taxes de véhicules (utilisé pour qsort)
 //---------------------------------------------------------------------------
 
-int compare_taxe(const void* vhc1, const void* vhc2){
-   return (taxe(*(Vehicule**)vhc2) - taxe(*(Vehicule**)vhc1))  < 0 ? -1 :
-          taxe(*(Vehicule**)vhc2) - taxe(*(Vehicule**)vhc1)    > 0 ? 1 : 0;
+int compare_taxe(const void* vhc1, const void* vhc2) {
+   return (taxe(*(Vehicule**) vhc2) - taxe(*(Vehicule**) vhc1)) < 0 ? -1 :
+          taxe(*(Vehicule**) vhc2) - taxe(*(Vehicule**) vhc1) > 0 ? 1 : 0;
 }
 
 //---------------------------------------------------------------------------
 // Fonction d'affichage de la taxe d'un véhicule
 //---------------------------------------------------------------------------
 
-void affichageTaxe(const Vehicule* vehicule){
+void affichageTaxe(const Vehicule* vehicule) {
    printf("\n" "%-" ESPACEMENT_TAXE "s: " "%g" DEVISE "\n",
           TAXE_STR, taxe(vehicule));
 }

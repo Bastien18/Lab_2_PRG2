@@ -42,7 +42,7 @@
 // Définition de type
 //---------------------------------------------------------------------------
 
-typedef int (*f)(const Vehicule*);
+typedef int (* f)(const Vehicule*);
 
 //---------------------------------------------------------------------------
 // Definition des symboles
@@ -69,8 +69,8 @@ typedef int (*f)(const Vehicule*);
 // Déclaration des variables et constantes
 //---------------------------------------------------------------------------
 
-static const char* LISTE_TYPE[]   = {TYPE_VOITURE_STD_STR, TYPE_VOITURE_HG_STR,
-												TYPE_CAMIONNETTE_STR};
+static const char* LISTE_TYPE[] = {TYPE_VOITURE_STD_STR, TYPE_VOITURE_HG_STR,
+                                   TYPE_CAMIONNETTE_STR};
 
 //---------------------------------------------------------------------------
 // Fonctions de comparaison de véhicule
@@ -83,8 +83,8 @@ int estVoitureHauteGamme(const Vehicule* vehicule);
 int estCamionnette(const Vehicule* vehicule);
 
 static f tabFonction[NBR_DE_TYPE] = {&estVoitureStandard,
-												&estVoitureHauteGamme,
-                                    &estCamionnette};
+                                     &estVoitureHauteGamme,
+                                     &estCamionnette};
 
 //---------------------------------------------------------------------------
 // Compte le nombre de véhicules correspondant à une catégorie
@@ -108,6 +108,7 @@ size_t compteVehicules(const Vehicule* debutParking[], size_t tailleParking,
 //---------------------------------------------------------------------------
 
 void affichageStatistique(const Vehicule* parking[], size_t taille);
+
 void affichageParking(const Vehicule* parking[], size_t tailleParking);
 
 #endif //LAB_02_PRG2_PARKING_H

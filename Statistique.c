@@ -24,9 +24,9 @@
 // Fonction comparaison de double pour le tri du tableau avant calcul médiane
 //---------------------------------------------------------------------------
 
-int compareDouble(const void* a, const void* b){
-   return (*(double*)b - *(double*)a) < 0 ? -1 :
-          *(double*)b - *(double*)a > 0 ? 1 : 0;
+int compareDouble(const void* a, const void* b) {
+   return (*(double*) b - *(double*) a) < 0 ? -1 :
+          *(double*) b - *(double*) a > 0 ? 1 : 0;
 }
 
 //---------------------------------------------------------------------------
@@ -45,12 +45,12 @@ double somme(const double* liste, size_t taille) {
 
 
 double moyenne(const double* liste, size_t taille) {
-   return somme(liste, taille) / (double)taille;
+   return somme(liste, taille) / (double) taille;
 }
 
 double mediane(const double* liste, size_t taille) {
    double mediane;
-   double *tab = (double*) calloc(taille, sizeof(double));
+   double* tab = (double*) calloc(taille, sizeof(double));
 
    if (!tab) {
       return 0.;

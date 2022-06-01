@@ -46,20 +46,20 @@
 // Déclaration des variables et constantes
 //---------------------------------------------------------------------------
 
-static const double     TAXE_BASE_CAMIONNETTE      =  700.,
-                        TAXE_BASE_VOITURE          =  400.,
-                        TAXE_VOITURE_ECO           =  0.,
-                        TAXE_VOITURE_POL           =  50.,
-                        TAUX_VOITURE_GROSSE_CYL    =  0.05,
-                        TAUX_CAMIONNETTE           =  10.,
-                        TAXE_VOITURE_HG            =  200.,
-                        TAXE_VOITURE_HG_PUISSANT   =  300.,
-                        TAUX_VOITURE_HG_PUISSANT   =  20.,
-								CONVERSION_TAXE_POIDS		=	1000.;
+static const double TAXE_BASE_CAMIONNETTE = 700.,
+   TAXE_BASE_VOITURE                      = 400.,
+   TAXE_VOITURE_ECO                       = 0.,
+   TAXE_VOITURE_POL                       = 50.,
+   TAUX_VOITURE_GROSSE_CYL                = 0.05,
+   TAUX_CAMIONNETTE                       = 10.,
+   TAXE_VOITURE_HG                        = 200.,
+   TAXE_VOITURE_HG_PUISSANT               = 300.,
+   TAUX_VOITURE_HG_PUISSANT               = 20.,
+   CONVERSION_TAXE_POIDS                  = 1000.;
 
-static const uint16_t   SEUIL_PUISSANCE            =  250,
-                        SEUIL_CYLINDREE            =  1400,
-                        SEUIL_REJET_CO2            =  130;
+static const uint16_t SEUIL_PUISSANCE     = 250,
+   SEUIL_CYLINDREE                        = 1400,
+   SEUIL_REJET_CO2                        = 130;
 
 //---------------------------------------------------------------------------
 // Calcul de la taxe annuelle d'un véhicule
@@ -73,7 +73,7 @@ double taxe(const Vehicule* vehicule);
 //---------------------------------------------------------------------------
 
 double* tabDeTaxe(const Vehicule* parking[], size_t taille,
-                  int(*estCritere)(const Vehicule*));
+                  int(* estCritere)(const Vehicule*));
 
 //---------------------------------------------------------------------------
 // Fonction retournant l'arrondis d'un prix à 5 centimes

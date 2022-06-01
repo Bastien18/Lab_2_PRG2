@@ -18,7 +18,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "Parking.h" 
+#include "Parking.h"
 #include "Taxe.h"
 #include "AffichageVehicule.h"
 #include "Statistique.h"
@@ -46,7 +46,7 @@ int estCamionnette(const Vehicule* vehicule) {
 //---------------------------------------------------------------------------
 
 size_t compteVehicules(const Vehicule* debutParking[], size_t tailleParking,
-                       int (*estCategorie)(const Vehicule *)) {
+                       int (* estCategorie)(const Vehicule*)) {
    size_t compteur = 0;
    for (size_t i = 0; i < tailleParking; ++i) {
       if (estCategorie(debutParking[i])) {
@@ -63,7 +63,7 @@ size_t compteVehicules(const Vehicule* debutParking[], size_t tailleParking,
 void affichageStatistique(const Vehicule* parking[], size_t taille) {
    printf(AFFICHAGE_STATISTIQUE_STR);
 
-   if(!taille) {
+   if (!taille) {
       printf(MSG_TABLEAU_VIDE);
       return;
    }
@@ -76,24 +76,22 @@ void affichageStatistique(const Vehicule* parking[], size_t taille) {
       size_t nbrTaxes = compteVehicules(parking, taille, tabFonction[i]);
       double* tableauTaxes = tabDeTaxe(parking, taille, tabFonction[i]);
 
-      if(!tableauTaxes) {
+      if (!tableauTaxes) {
          printf(MSG_CATEGORIE_VIDE "%s\n", LISTE_TYPE[i]);
          continue;
-      }
-
-      else{
+      } else {
          printf("%-" ESPACEMENT_STAT "s" ": %.2f\n",
                 SOMME_STR,
-                somme(tableauTaxes,nbrTaxes));
+                somme(tableauTaxes, nbrTaxes));
          printf("%-" ESPACEMENT_STAT "s" ": %.2f\n",
                 MOYENNE_STR,
-                moyenne(tableauTaxes,nbrTaxes));
+                moyenne(tableauTaxes, nbrTaxes));
          printf("%-" ESPACEMENT_STAT "s" ": %.2f\n",
                 MEDIANE_STR,
-                mediane(tableauTaxes,nbrTaxes));
+                mediane(tableauTaxes, nbrTaxes));
          printf("%-" ESPACEMENT_STAT "s" ": %.2f\n",
                 ECART_STR,
-                ecartType(tableauTaxes,nbrTaxes));
+                ecartType(tableauTaxes, nbrTaxes));
       }
       free(tableauTaxes);
    }
@@ -101,10 +99,10 @@ void affichageStatistique(const Vehicule* parking[], size_t taille) {
    printf("\n");
 }
 
-void affichageParking(const Vehicule* parking[],size_t tailleParking){
+void affichageParking(const Vehicule* parking[], size_t tailleParking) {
    printf(AFFICHAGE_PARKING_STR);
 
-   for(size_t i = 0; i < tailleParking; ++i)
+   for (size_t i = 0; i < tailleParking; ++i)
       affichage(parking[i]);
 }
 
