@@ -2,7 +2,7 @@
   ---------------------------------------------------------------------------
   Fichier     : Taxe.c
   Nom du labo : Laboratoire 2
-  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento
+  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento Santos
   Date        : 01.06.2022
   But         : Fichier de définition des fonctions déclarées dans Taxe.h
 
@@ -27,6 +27,7 @@
 //---------------------------------------------------------------------------
 
 double taxe(const Vehicule* vehicule){
+   const double KG_EN_TONNE = 1000.;
    double taxe = 0;
 
    switch (vehicule->typeVehicule) {
@@ -55,7 +56,7 @@ double taxe(const Vehicule* vehicule){
                   taxe = TAXE_BASE_VOITURE
                      + TAXE_VOITURE_HG_PUISSANT
                      + TAUX_VOITURE_HG_PUISSANT
-                     * vehicule->categorie.voiture.poids / 1000.;
+                     * vehicule->categorie.voiture.poids / KG_EN_TONNE;
                break;
          }
          break;
