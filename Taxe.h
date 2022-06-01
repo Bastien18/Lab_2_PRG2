@@ -53,8 +53,8 @@ static const double     TAXE_BASE_CAMIONNETTE      =  700.,
                         TAUX_VOITURE_GROSSE_CYL    =  0.05,
                         TAUX_CAMIONNETTE           =  10.,
                         TAXE_VOITURE_HG            =  200.,
-                        TAXE_VOITURE_HG_PUISSANT   =	300.,
-                        TAUX_VOITURE_HG_PUISSANT   =	20.;
+                        TAXE_VOITURE_HG_PUISSANT   =  300.,
+                        TAUX_VOITURE_HG_PUISSANT   =  20.;
 
 static const uint16_t   SEUIL_PUISSANCE            =  250,
                         SEUIL_CYLINDREE            =  1400,
