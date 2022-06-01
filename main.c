@@ -2,7 +2,7 @@
   ---------------------------------------------------------------------------
   Fichier     : main.c
   Nom du labo : Laboratoire 2
-  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento
+  Auteur(s)   : Bastien Pillonel, Kylian Manzini, Stéphane Nascimento Santos
   Date        : 01.06.2022
   But         : Programme principal. Initialise un parking (tableau rempli avec
                 l'adresse de plusieurs véhicules), le trie par taxes annuelles
