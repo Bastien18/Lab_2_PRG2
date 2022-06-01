@@ -86,13 +86,13 @@ void affichageStatistique(const Vehicule* parking[], size_t taille) {
                 SOMME_STR,
                 somme(tableauTaxes,nbrTaxes));
          printf("%-" ESPACEMENT_STAT "s" ": %.2f\n",
-                STATISTIQUE[1],
+                MOYENNE_STR,
                 moyenne(tableauTaxes,nbrTaxes));
          printf("%-" ESPACEMENT_STAT "s" ": %.2f\n",
-                STATISTIQUE[2],
+                MEDIANE_STR,
                 mediane(tableauTaxes,nbrTaxes));
          printf("%-" ESPACEMENT_STAT "s" ": %.2f\n",
-                STATISTIQUE[3],
+                ECART_STR,
                 ecartType(tableauTaxes,nbrTaxes));
       }
       free(tableauTaxes);
